@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import "../styles/mypage.css";
 
-function MyPage() {
+function Scopes() {
   const [scope, setScope] = useState([]);
 
   var options = {
@@ -64,4 +64,4 @@ function MyPage() {
   );
 }
 
-export default MyPage;
+export default Scopes;

@@ -1,25 +1,13 @@
 import './App.css';
 import Header from './components/Header.jsx';
 import Home from './components/Home.jsx';
-
-import MyPage from './components/MyPage.jsx';
-
-
-
-
+import Scopes from './components/Scopes.jsx';
 import NoMatch from './components/NoMatch.jsx';
-
 import { Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-
-
-
 function App() {
-
-
   return (
     <Container>
       <Router>
@@ -28,16 +16,10 @@ function App() {
           <Route  exact path="/">
             <Home/>
           </Route>
+          <Route path="/scopes">
          
-         
-          <Route path="/mypage">
-         
-              <MyPage  />
+              <Scopes  />
           </Route>
-          
-         
-         
-         
           <Route path="*">
             <NoMatch />
           </Route>

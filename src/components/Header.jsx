@@ -6,7 +6,7 @@ function Header() {
       <ul className="header">
         <li> <NavLink exact activeClassName="active" to="/"> Home </NavLink></li>
   
-          <li><NavLink activeClassName="active" to="/mypage">MyPage</NavLink></li>
+          <li><NavLink activeClassName="active" to="/scopes">Scopes</NavLink></li>
          
       </ul>
     </div>
