@@ -36,7 +36,8 @@ function Scopes() {
 
   return (
     <div>
-      <Link to="/">Home</Link>
+      <Link to="/scope">Scope</Link> 
+    
     <div className="tablediv">
         <p style={{ textAlign: "center" }}>All Scopes</p>
         <table style={{ width: 750 }} className="table table-striped">

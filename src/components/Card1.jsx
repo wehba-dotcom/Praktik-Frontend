@@ -14,7 +14,7 @@ function Card1( ) {
         </div>            
         </div>
             
-            <Link to="/scopes"> view</Link>
+            <Link to="/scope"> view</Link>
 </div>
   )
 }

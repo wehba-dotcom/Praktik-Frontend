@@ -1,21 +1,35 @@
 import './App.css';
 import Header from './components/Header.jsx';
 import Home from './components/Home.jsx';
-import Scopes from './components/Scopes.jsx';
-import NoMatch from './components/NoMatch.jsx';
-import { Container } from 'react-bootstrap';
+import Scopes from './components/Scopes';
+import Element1 from './components/Element1.jsx';
+import Scope from './components/Scope.jsx';
+
+import Card3 from './components/Card3';
+import Card2 from './components/Card2';
+import Card1 from './components/Card1';
+import NoMatch from './components/NoMatch';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter , Switch, Route } from 'react-router-dom';
+import { BrowserRouter , Router, Switch, Route } from 'react-router-dom';
+
 
 function App() {
   return (
     <BrowserRouter>
-    
-    <Switch>
+
+ 
            <Route exact path="/" component={Home}/>
-           <Route exact path="/header" component={Header}/>
-           <Route exact path="/scopes" component={Scopes}/>
-   </Switch>
+           <Route path="/header" component={Header}/>
+          <Route path="/scopes" component={Scopes}/>
+          <Route path="/element1" component={Element1}/>
+          <Route path="/scope" component={Scope}/>
+          <Route path="/nomatch" component={NoMatch}/>
+       
+          <Route path="/card1" component={Card1}/>
+          <Route path="/card2" component={Card2}/>
+          <Route path="/card3" component={Card3}/>
+  
+ 
  </BrowserRouter>
   )
 }
