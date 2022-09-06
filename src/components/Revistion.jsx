@@ -9,11 +9,11 @@ import Element1 from "./Element1";
 import Allscopes from "./Allscopes";
 
 
-function Scope(props){
+function Revistion(props){
     return(
 <Container>
 <Router>
-<Header name="scope" />
+<Header name="revistion" />
 
 <Switch>
 <Route exact path="/">
@@ -44,4 +44,4 @@ function Scope(props){
 </Container>
     )
 }
-export default Scope;
+export default Revistion;
