@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import {Link} from 'react-router-dom';
 import "../styles/mypage.css";
 
 function Scopes() {
@@ -36,7 +35,7 @@ function Scopes() {
 
   return (
     <div>
-      <Link to="/scope">Scope</Link> 
+    
      
     
     <div className="tablediv">

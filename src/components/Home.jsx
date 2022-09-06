@@ -1,9 +1,6 @@
 
 import React from 'react';
 import Card1 from './Card1';
-import Card2 from './Revistion';
-import Card3 from './Card3';
-import {Link} from 'react-router-dom';
 import Body from './Body';
 
 function Home( props) {

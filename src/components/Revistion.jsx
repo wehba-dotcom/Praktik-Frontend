@@ -1,26 +1,26 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {Container} from "react-bootstrap";
-import Scopes from "./Scopes";
+import Revistiones from "./Revistiones";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from "./Header";
+import { NavLink } from 'react-router-dom';
 import NoMatch from "./NoMatch";
 import Element1 from "./Element1";
 import Allscopes from "./Allscopes";
 
 
-function Revistion(props){
+function Revistion(){
     return(
 <Container>
 <Router>
-<Header name="revistion" />
+<Header  />
 
 <Switch>
 <Route exact path="/">
     <Allscopes/>
 </Route>
-<Route path="/scopes">
-    <Scopes/>
+<Route path="/revistiones">
+    <Revistiones/>
 </Route>
 
 
@@ -44,4 +44,16 @@ function Revistion(props){
 </Container>
     )
 }
+function Header() {
+    return (
+      <div style={{marginTop:'40px'}}>
+        <ul className="header">
+          <li> <NavLink exact activeClassName="active" to="/allscopes">All Revistios </NavLink></li>
+          <li><NavLink activeClassName="active" to="/revistiones">Revistions</NavLink></li>
+          <li><NavLink activeClassName="active" to="/element1">Emement1</NavLink></li>
+           
+        </ul>
+      </div>
+    );
+  }
 export default Revistion;

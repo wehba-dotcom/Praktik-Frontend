@@ -1,26 +1,27 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {Container} from "react-bootstrap";
-import Scopes from "./Scopes";
+import Leasing from "./Leasing";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from "./Header";
-import NoMatch from "./NoMatch";
+import { NavLink } from 'react-router-dom';
+
+import NoMatch from "./Leasing";
 import Element1 from "./Element1";
 import Allscopes from "./Allscopes";
 
 
-function Leases(props){
+function Leases(){
     return(
 <Container>
 <Router>
-<Header name="leases" />
+<Header  />
 
 <Switch>
 <Route exact path="/">
     <Allscopes/>
 </Route>
-<Route path="/scopes">
-    <Scopes/>
+<Route path="/leasing">
+    <Leasing/>
 </Route>
 
 
@@ -44,4 +45,16 @@ function Leases(props){
 </Container>
     )
 }
+function Header() {
+    return (
+      <div style={{marginTop:'40px'}}>
+        <ul className="header">
+          <li> <NavLink exact activeClassName="active" to="/allscopes">All Leases </NavLink></li>
+          <li><NavLink activeClassName="active" to="/leasing">Leases</NavLink></li>
+          <li><NavLink activeClassName="active" to="/element1">Emement1</NavLink></li>
+           
+        </ul>
+      </div>
+    );
+  }
 export default Leases;
