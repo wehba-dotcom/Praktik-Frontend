@@ -4,14 +4,16 @@ import {Container} from "react-bootstrap";
 import Scopes from "./Scopes";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import NoMatch from "./Leasing";
+import NoMatch from "./NoMatch";
 import Element1 from "./Element1";
 import Allscopes from "./Allscopes";
 import { NavLink } from 'react-router-dom';
 
 function Scope(){
     return(
+      
 <Container>
+  
 <Router>
 <Header  />
 
@@ -19,7 +21,7 @@ function Scope(){
 <Route exact path="/">
     <Allscopes/>
 </Route>
-<Route path="/scopes">
+<Route exact path="/scopes">
     <Scopes/>
 </Route>
 
@@ -51,7 +53,7 @@ function Header() {
           <li> <NavLink exact activeClassName="active" to="/allscopes">All Scopes </NavLink></li>
           <li><NavLink activeClassName="active" to="/scopes">Scopes</NavLink></li>
           <li><NavLink activeClassName="active" to="/element1">Emement1</NavLink></li>
-           
+          
         </ul>
       </div>
     );

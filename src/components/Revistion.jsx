@@ -3,10 +3,11 @@ import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {Container} from "react-bootstrap";
 import Revistiones from "./Revistiones";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { NavLink } from 'react-router-dom';
+import  { LinkContainer } from 'react-router-bootstrap';
 import NoMatch from "./NoMatch";
 import Element1 from "./Element1";
 import Allscopes from "./Allscopes";
+import {Navbar, Nav} from 'react-bootstrap'
 
 
 function Revistion(){
@@ -45,15 +46,23 @@ function Revistion(){
     )
 }
 function Header() {
-    return (
-      <div style={{marginTop:'40px'}}>
-        <ul className="header">
-          <li> <NavLink exact activeClassName="active" to="/allscopes">All Revistios </NavLink></li>
-          <li><NavLink activeClassName="active" to="/revistiones">Revistions</NavLink></li>
-          <li><NavLink activeClassName="active" to="/element1">Emement1</NavLink></li>
-           
-        </ul>
-      </div>
-    );
+  return (
+    <Navbar bg="light" expand="lg">
+        <LinkContainer to="/">
+<Navbar.Brand>Allscopes</Navbar.Brand>
+</LinkContainer>
+<Navbar.Toggle aria-controls="basic-navbar-nav" />
+<Navbar.Collapse id="basic-navbar-nav">
+<Nav className="mr-auto">
+    <LinkContainer to="/revistiones">
+  <Nav.Link>Revistiones</Nav.Link>
+  </LinkContainer>
+  <LinkContainer to="/element1">
+  <Nav.Link>Element1</Nav.Link>
+  </LinkContainer>
+</Nav>
+</Navbar.Collapse>
+</Navbar>
+)
   }
 export default Revistion;

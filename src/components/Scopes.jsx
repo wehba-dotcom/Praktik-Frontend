@@ -34,7 +34,7 @@ function Scopes() {
   
 
   return (
-    <div>
+    
     
      
     
@@ -46,44 +46,31 @@ function Scopes() {
               style={{ backgroundColor: "darkgray" }}
               className="myGoalTableContent"
             >
-        <th>ScopeId</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>ScopeNetId</th>
       <th>SubnetMask</th>
       <th>SubnetMask_int</th>
-      <th>StartRange</th>
-      <th>StartRange_int</th>
-      <th>EndRange</th>
-      <th>EndRange_int</th>
-      <th>Description</th>
+      
     
-      <th>MaxBootpClients</th>
-      <th>Name</th>
-      
-      
-
-      
         </tr>
     </thead>
     <tbody>
 {scope.map((sc) => (<tr>
-  <td>{sc.ScopeId}</td>
+  <td>{sc.Name}</td>
+  <td>{sc.Description}</td>
+  <td>{sc.ScopeNetId}</td>
       <td>{sc.SubnetMask}</td>
       <td>{sc.SubnetMask_int}</td>
-      <td>{sc.StartRange}</td>
-      <td>{sc.StartRange_int}</td>
-      <td>{sc.EndRange}</td>
-      <td>{sc.EndRange_int}</td>
-      <td>{sc.Description}</td>
-
-      <td>{sc.MaxBootpClients}</td>
-      <td>{sc.Name}</td>
-     
-     
+      
+      
+    
     </tr>))}
     </tbody>
 </table>
 </div>
 
-</div>
+
   );
 }
 

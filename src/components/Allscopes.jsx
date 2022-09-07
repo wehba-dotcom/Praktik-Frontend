@@ -5,11 +5,11 @@ function Allscopes(){
 
     return(
         
-        <div>
-       
-       <div> <h1>i am all scopes</h1></div>
-     <Link to="/">Home</Link></div> 
       
+       <div>
+       <div> <h1>i am all scopes</h1></div>
+       <div> <Link to="/">Home</Link></div> 
+       </div>
     )
 }
 

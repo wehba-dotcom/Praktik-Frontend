@@ -5,7 +5,7 @@ import Leasing from "./Leasing";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavLink } from 'react-router-dom';
 
-import NoMatch from "./Leasing";
+import NoMatch from "./NoMatch";
 import Element1 from "./Element1";
 import Allscopes from "./Allscopes";
 
