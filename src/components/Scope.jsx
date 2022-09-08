@@ -8,10 +8,15 @@ import NoMatch from "./NoMatch";
 import Element1 from "./Element1";
 import Allscopes from "./Allscopes";
 import { NavLink } from 'react-router-dom';
-
+import {Button} from "react-bootstrap"
+import { useHistory } from 'react-router-dom';
 function Scope(){
+  const history = useHistory()
     return(
-      
+      <div><Button style={{
+        backgroundColor: 'grey'
+        
+      }} onClick={()=> history.push("/") } >Go Back!</Button>
 <Container>
   
 <Router>
@@ -44,13 +49,14 @@ function Scope(){
 
 
 </Container>
+</div>
     )
 }
 function Header() {
     return (
       <div style={{marginTop:'40px'}}>
         <ul className="header">
-          <li> <NavLink exact activeClassName="active" to="/allscopes">All Scopes </NavLink></li>
+          <li> <NavLink exact activeClassName="active" to="/">All Scopes </NavLink></li>
           <li><NavLink activeClassName="active" to="/scopes">Scopes</NavLink></li>
           <li><NavLink activeClassName="active" to="/element1">Emement1</NavLink></li>
           
