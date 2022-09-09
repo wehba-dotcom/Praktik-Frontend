@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "../styles/mypage.css";
 
-function Leasing() {
-  const [scope, setScope] = useState([]);
+function Reservations() {
+  const [reserve, setReserve] = useState([]);
 
   var options = {
     method: 'GET',
@@ -17,10 +17,10 @@ function Leasing() {
   const fetchData = async () => {
     try{
       const response = await fetch(
-        "https://central.brkint.dk/api/leases",options
+        "https://central.brkint.dk/api/reservations",options
       );
       const data = await response.json();
-      setScope(data);
+      setReserve(data);
     } catch(error) {
       console.log(error);
     }
@@ -34,39 +34,62 @@ function Leasing() {
 
   return (
     
+    
+     
+    
     <div className="tablediv">
-        <p style={{ textAlign: "center" }}>All Scopes</p>
+        <p style={{ textAlign: "center" }}>All Reservations</p>
         <table style={{ widtd: 750 }} className="table table-striped">
     <tdead>
     <tr
               style={{ backgroundColor: "darkgray" }}
               className="myGoalTableContent"
             >
-      <th>IPAddress_int</th>
-      <th>IPAddress</th>
+      <th>ScopeId_In</th>
       <th>ScopeId</th>
-        <th>ClientID</th>
-      <th>HostName</th>
+      <th>IPAddress</th>
+        <th>IPAddress_int</th>
+      <th>ClientId</th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
       <th>AddressState</th>
-        <th>LeaseExpiryTime</th>
-      <th>ScopeId_intt</th>
-        <th>HentetFraDHCP</th>
+      <th>PSComputerName</th>
+      <th>ScopeNetId</th>
+        <th>IPAddressNetid</th>
       <th>IPAddressHostid</th>
+      <th>ScopeId_bin</th>
+      <th>IPAddress_bin</th>
+      <th>ScopeNetId_bin</th>
+        <th>IPAddressNetid_bin</th>
+        <th>IPAddressHostid_bin</th>
+        
+    
         </tr>
     </tdead>
     <tbody >
-{scope.map((sc) => (<tr>
-  <td>{sc.IPAddress_int}</td>
-      <td>{sc.IPAddress}</td>
+{reserve.map((sc) => (<tr>
+  <td>{sc.ScopeId_Int}</td>
       <td>{sc.ScopeId}</td>
-        <td>{sc.ClientID}</td>
-      <td>{sc.HostName}</td>
+      <td>{sc.IPAddress}</td>
+      <td>{sc.IPAddress_int}</td>
+        <td>{sc.ClientId}</td>
+        <td>{sc.Name}</td>
+        <td>{sc.Type}</td>
+        <td>{sc.Description}</td>
       <td>{sc.AddressState}</td>
-        <td>{sc.LeaseExpiryTime}</td>
-      <td>{sc.ScopeId_int}</td>
-        <td>{sc.HentetFraDHCP}</td>
-      <td>{sc.IPAddressHostid}</td>
-       
+      <td>{sc.PSComputerName}</td>
+      <td>{sc.ScopeNetId}</td>
+      <td>{sc.IPAddressNetid}</td>
+        <td>{sc.IPAddressHostid}</td>
+      <td>{sc.ScopeId_bin}</td>
+      <td>{sc.IPAddress_bin}</td>
+        <td>{sc.ScopeNetId_bin}</td>
+        <td>{sc.IPAddressNetid_bin}</td>
+        <td>{sc.IPAddressHostid_bin}</td>
+        
+    
+      
     
     </tr>))}
     </tbody>
@@ -77,4 +100,4 @@ function Leasing() {
   );
 }
 
-export default Leasing;
+export default Reservations;

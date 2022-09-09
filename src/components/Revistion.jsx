@@ -1,17 +1,25 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {Container} from "react-bootstrap";
-import Revistiones from "./Revistiones";
+import Reservations from "./Reservations";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import  { LinkContainer } from 'react-router-bootstrap';
 import NoMatch from "./NoMatch";
 import Element1 from "./Element1";
 import Allscopes from "./Allscopes";
 import {Navbar, Nav} from 'react-bootstrap'
+import { NavLink } from 'react-router-dom';
+import {Button} from "react-bootstrap"
+import { useHistory } from 'react-router-dom';
 
 
 function Revistion(){
+    const history = useHistory()
     return(
+        <div><Button style={{
+            backgroundColor: 'grey'
+            
+          }} onClick={()=> history.push("/") } >Go Back!</Button>
 <Container>
 <Router>
 <Header  />
@@ -20,8 +28,8 @@ function Revistion(){
 <Route exact path="/">
     <Allscopes/>
 </Route>
-<Route path="/revistiones">
-    <Revistiones/>
+<Route path="/reservations">
+    <Reservations/>
 </Route>
 
 
@@ -43,6 +51,7 @@ function Revistion(){
 
 
 </Container>
+</div>
     )
 }
 function Header() {
@@ -54,8 +63,8 @@ function Header() {
 <Navbar.Toggle aria-controls="basic-navbar-nav" />
 <Navbar.Collapse id="basic-navbar-nav">
 <Nav className="mr-auto">
-    <LinkContainer to="/revistiones">
-  <Nav.Link>Revistiones</Nav.Link>
+    <LinkContainer to="/reservations">
+  <Nav.Link>Reservations</Nav.Link>
   </LinkContainer>
   <LinkContainer to="/element1">
   <Nav.Link>Element1</Nav.Link>

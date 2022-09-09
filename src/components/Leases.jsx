@@ -3,15 +3,20 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {Container} from "react-bootstrap";
 import Leasing from "./Leasing";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { NavLink } from 'react-router-dom';
-
 import NoMatch from "./NoMatch";
 import Element1 from "./Element1";
 import Allscopes from "./Allscopes";
-
+import { NavLink } from 'react-router-dom';
+import {Button} from "react-bootstrap"
+import { useHistory } from 'react-router-dom';
 
 function Leases(){
+  const history = useHistory()
     return(
+      <div><Button style={{
+        backgroundColor: 'grey'
+        
+      }} onClick={()=> history.push("/") } >Go Back!</Button>
 <Container>
 <Router>
 <Header  />
@@ -43,6 +48,7 @@ function Leases(){
 
 
 </Container>
+</div>
     )
 }
 function Header() {

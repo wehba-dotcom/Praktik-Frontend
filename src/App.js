@@ -11,7 +11,7 @@ import Card1 from './components/Card1';
 import NoMatch from './components/NoMatch';
 import Leases from './components/Leases';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Revistiones from './components/Revistiones';
+import Reservations from './components/Reservations';
 import { BrowserRouter , Route } from 'react-router-dom';
 
 import React from 'react'
@@ -22,7 +22,7 @@ function App() {
 
  
            <Route exact path="/" component={Home}/>
-           <Route path="/revistiones"  component={Revistiones}/>
+           <Route path="/reservations"  component={Reservations}/>
            <Route  path="/allscopes"  component={Allscopes}/>
          
           <Route path="/scopes" component={Scopes}/>
