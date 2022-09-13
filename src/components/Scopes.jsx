@@ -40,7 +40,7 @@ function Scopes() {
     <div className="tablediv">
         <p style={{ textAlign: "center" }}>All Scopes</p>
         <table style={{ widtd: 750 }} className="table table-striped">
-    <tdead>
+    <thead>
     <tr
               style={{ backgroundColor: "darkgray" }}
               className="myGoalTableContent"
@@ -75,8 +75,8 @@ function Scopes() {
       
     
         </tr>
-    </tdead>
-    <tbody >
+    </thead>
+    <tbody  >
 {scope.map((sc) => (<tr>
   <td>{sc.ScopeId_Int}</td>
       <td>{sc.ScopeId}</td>

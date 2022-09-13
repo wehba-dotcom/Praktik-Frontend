@@ -37,7 +37,7 @@ function Leasing() {
     <div className="tablediv">
         <p style={{ textAlign: "center" }}>All Scopes</p>
         <table style={{ widtd: 750 }} className="table table-striped">
-    <tdead>
+    <thead>
     <tr
               style={{ backgroundColor: "darkgray" }}
               className="myGoalTableContent"
@@ -53,7 +53,7 @@ function Leasing() {
         <th>HentetFraDHCP</th>
       <th>IPAddressHostid</th>
         </tr>
-    </tdead>
+    </thead>
     <tbody >
 {scope.map((sc) => (<tr>
   <td>{sc.IPAddress_int}</td>

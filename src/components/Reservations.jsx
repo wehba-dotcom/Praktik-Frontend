@@ -40,7 +40,7 @@ function Reservations() {
     <div className="tablediv">
         <p style={{ textAlign: "center" }}>All Reservations</p>
         <table style={{ widtd: 750 }} className="table table-striped">
-    <tdead>
+    <thead>
     <tr
               style={{ backgroundColor: "darkgray" }}
               className="myGoalTableContent"
@@ -66,7 +66,7 @@ function Reservations() {
         
     
         </tr>
-    </tdead>
+    </thead>
     <tbody >
 {reserve.map((sc) => (<tr>
   <td>{sc.ScopeId_Int}</td>
