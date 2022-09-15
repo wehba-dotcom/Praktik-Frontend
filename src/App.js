@@ -2,7 +2,7 @@ import './App.css';
 
 import Home from './components/Home.jsx';
 import Scopes from './components/Scopes';
-import Element1 from './components/Element1.jsx';
+import Find_Scope from './components/Find_Scope.jsx';
 import Scope from './components/Scope.jsx';
 import Allscopes from './components/Allscopes';
 import Leasing from './components/Leasing';
@@ -24,9 +24,9 @@ function App() {
            <Route exact path="/" component={Home}/>
            <Route path="/reservations"  component={Reservations}/>
            <Route  path="/allscopes"  component={Allscopes}/>
-         
+           <Route  path="/nomatch"  component={NoMatch}/>
           <Route path="/scopes" component={Scopes}/>
-          <Route path="/element1" component={Element1}/>
+          <Route path="/find_scope" component={Find_Scope}/>
           <Route path="/scope" component={Scope}/>
          <Route path="/leases" component={Leases}/>
           <Route path="/noMatch" component={NoMatch}/>

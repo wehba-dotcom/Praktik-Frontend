@@ -4,7 +4,7 @@ import {Container} from "react-bootstrap";
 import Leasing from "./Leasing";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NoMatch from "./NoMatch";
-import Element1 from "./Element1";
+
 import Allscopes from "./Allscopes";
 import { NavLink } from 'react-router-dom';
 import {Button} from "react-bootstrap"
@@ -30,9 +30,8 @@ function Leases(){
 </Route>
 
 
-<Route path="/element1">
-    <Element1 />
-</Route>
+
+
     <Route path="*">
         <NoMatch />
     </Route>
@@ -57,7 +56,7 @@ function Header() {
         <ul className="header">
           <li> <NavLink exact activeClassName="active" to="/allscopes">All Leases </NavLink></li>
           <li><NavLink activeClassName="active" to="/leasing">Leases</NavLink></li>
-          <li><NavLink activeClassName="active" to="/element1">Emement1</NavLink></li>
+        
            
         </ul>
       </div>

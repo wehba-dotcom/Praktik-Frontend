@@ -5,7 +5,7 @@ import Scopes from "./Scopes";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import NoMatch from "./NoMatch";
-import Element1 from "./Element1";
+import Find_Scope from "./Find_Scope";
 import Allscopes from "./Allscopes";
 import { NavLink } from 'react-router-dom';
 import {Button} from "react-bootstrap"
@@ -23,16 +23,16 @@ function Scope(){
 <Header  />
 
 <Switch>
-<Route exact path="/">
+<Route exact  path="/allscopes">
     <Allscopes/>
 </Route>
-<Route exact path="/scopes">
+<Route  path="/scopes">
     <Scopes/>
 </Route>
 
 
-<Route path="/element1">
-    <Element1 />
+<Route path="/find_scope">
+    <Find_Scope />
 </Route>
     <Route path="*">
         <NoMatch />
@@ -45,9 +45,6 @@ function Scope(){
 </Router>
 
 
-
-
-
 </Container>
 </div>
     )
@@ -56,9 +53,10 @@ function Header() {
     return (
       <div style={{marginTop:'40px'}}>
         <ul className="header">
-          <li> <NavLink exact activeClassName="active" to="/">All Scopes </NavLink></li>
+          <li> <NavLink exact activeClassName="active" to="/allscopes">All Scopes </NavLink></li>
           <li><NavLink activeClassName="active" to="/scopes">Scopes</NavLink></li>
-          <li><NavLink activeClassName="active" to="/element1">Emement1</NavLink></li>
+          <li><NavLink activeClassName="active" to="/find_scope">Find_Scope</NavLink></li>
+         
           
         </ul>
       </div>

@@ -5,7 +5,7 @@ import Reservations from "./Reservations";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import  { LinkContainer } from 'react-router-bootstrap';
 import NoMatch from "./NoMatch";
-import Element1 from "./Element1";
+
 import Allscopes from "./Allscopes";
 import {Navbar, Nav} from 'react-bootstrap'
 import { NavLink } from 'react-router-dom';
@@ -33,9 +33,7 @@ function Revistion(){
 </Route>
 
 
-<Route path="/element1">
-    <Element1 />
-</Route>
+
     <Route path="*">
         <NoMatch />
     </Route>
@@ -66,9 +64,7 @@ function Header() {
     <LinkContainer to="/reservations">
   <Nav.Link>Reservations</Nav.Link>
   </LinkContainer>
-  <LinkContainer to="/element1">
-  <Nav.Link>Element1</Nav.Link>
-  </LinkContainer>
+ 
 </Nav>
 </Navbar.Collapse>
 </Navbar>
