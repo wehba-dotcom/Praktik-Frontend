@@ -1,81 +1,8 @@
-
-import React, { useRef, useState } from "react";
-function Find_Scope(){
-
+<div className="tablediv">
+        <p style={{ textAlign: "center" }}>All Scopes</p>
+        <div>  <button className="btn btn-sm btn-primary" onClick={getAllData}>Get All</button>
   
-    const baseURL = "https://central.brkint.dk/api/scopes?scopeid=";
-  
-    const ScopeId = useRef(null);
-    const Name = useRef(null);
-  
-    const [getResult, setGetResult] = useState(null);
-  
-    const fortmatResponse = (res) => {
-      return JSON.stringify(res, null, 2);
-    }
-  
-    async function getAllData() {
-      
-        const res = await fetch(`${baseURL}`);
-  
-  
-        const data = await res.json();
-  
-       
-  
-        setGetResult(data);
-      
-    }
-  
-    async function getDataById() {
-      const id = ScopeId.current.value;
-  
-    
-          const res = await fetch(`${baseURL}${id}`);
-  
-  
-          const data = await res.json();
-  
-        
-        
-  
-          setGetResult(data);
-       
-    }
-  
-    async function getDataByTitle() {
-      const title = Name.current.value;
-  
-    
-          // const res = await fetch(`${baseURL}/tutorials?title=${title}`);
-  
-          let url = new URL(`https://central.brkint.dk/api/scopes?name=${title}`);
-          
-  
-          const res = await fetch(url);
-  
-       
-  
-          const data = await res.json();
-  
-         
-  
-          setGetResult(data);
-       
-    }
-  
-    const clearGetOutput = () => {
-      setGetResult(null);
-    }
-  
-    return (
-      <div className="card">
-        <div className="card-header">Scopes-search-by-scopeid-name</div>
-        <div className="card-body">
-          <div className="input-group input-group-sm">
-            <button className="btn btn-sm btn-primary" onClick={getAllData}>Get All</button>
-  
-            <input type="text" ref={ScopeId} className="form-control ml-2" placeholder="id" />
+            <input type="text" ref={Scopeid} className="form-control ml-2" placeholder="id" />
             <div className="input-group-append">
               <button className="btn btn-sm btn-primary" onClick={getDataById}>Get by Id</button>
             </div>
@@ -86,10 +13,7 @@ function Find_Scope(){
             </div>
   
             <button className="btn btn-sm btn-warning ml-2" onClick={clearGetOutput}>Clear</button>
-          </div>   
-          
-          { getResult && <div className="alert alert-secondary mt-2" role="alert"><pre>{ <div className="tablediv">
-        <p style={{ textAlign: "center" }}> Scope</p>
+          </div>  
         <table style={{ widtd: 750 }} className="table table-striped">
     <thead>
     <tr
@@ -126,8 +50,9 @@ function Find_Scope(){
       
     
         </tr>
-    </thead> <tbody  >
-{getResult.map((sc) => (<tr>
+    </thead>
+    <tbody  >
+{scope.map((sc) => (<tr>
   <td>{sc.ScopeId_Int}</td>
       <td>{sc.ScopeId}</td>
       <td>{sc.SubnetMask}</td>
@@ -157,12 +82,9 @@ function Find_Scope(){
       
     
     </tr>))}
-    </tbody></table></div>}</pre></div> }
-        </div>
-      </div>
-    );
-  }
-  
-  
+    </tbody>
+</table>
+</div>
 
-export default Find_Scope;
+
+  );
