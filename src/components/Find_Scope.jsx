@@ -3,10 +3,10 @@ import React, { useRef, useState } from "react";
 function Find_Scope(){
 
   
-    const baseURL = "https://central.brkint.dk/api";
+    const baseURL = "https://central.brkint.dk/api/scopes?scopeid=";
   
     const Scopeid = useRef(null);
-    const get_title = useRef(null);
+    const Name = useRef(null);
   
     const [getResult, setGetResult] = useState(null);
   
@@ -16,7 +16,7 @@ function Find_Scope(){
   
     async function getAllData() {
       try {
-        const res = await fetch(`${baseURL}/scopes`);
+        const res = await fetch(`${baseURL}`);
   
         if (!res.ok) {
           const message = `An error has occured: ${res.status} - ${res.statusText}`;
@@ -46,7 +46,7 @@ function Find_Scope(){
   
       if (id) {
         try {
-          const res = await fetch(`https://central.brkint.dk/api/scopes?scopeid=${id}`);
+          const res = await fetch(`${baseURL}${id}`);
   
           if (!res.ok) {
             const message = `An error has occured: ${res.status} - ${res.statusText}`;
@@ -73,15 +73,14 @@ function Find_Scope(){
     }
   
     async function getDataByTitle() {
-      const title = get_title.current.value;
+      const title = Name.current.value;
   
       if (title) {
         try {
           // const res = await fetch(`${baseURL}/tutorials?title=${title}`);
   
-          let url = new URL(`${baseURL}/tutorials`);
-          const params = { title: title };
-          url.search = new URLSearchParams(params);
+          let url = new URL(`https://central.brkint.dk/api/scopes?name=${title}`);
+          
   
           const res = await fetch(url);
   
@@ -124,9 +123,9 @@ function Find_Scope(){
               <button className="btn btn-sm btn-primary" onClick={getDataById}>Get by Id</button>
             </div>
   
-            <input type="text" ref={get_title} className="form-control ml-2" placeholder="Title" />
+            <input type="text" ref={Name} className="form-control ml-2" placeholder="Name" />
             <div className="input-group-append">
-              <button className="btn btn-sm btn-primary" onClick={getDataByTitle}>Find By Title</button>
+              <button className="btn btn-sm btn-primary" onClick={getDataByTitle}>Find By Name</button>
             </div>
   
             <button className="btn btn-sm btn-warning ml-2" onClick={clearGetOutput}>Clear</button>
