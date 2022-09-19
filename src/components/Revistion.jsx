@@ -4,7 +4,7 @@ import {Container} from "react-bootstrap";
 import Reservations from "./Reservations";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import  { LinkContainer } from 'react-router-bootstrap';
-import NoMatch from "./NoMatch";
+
 
 import Allscopes from "./Allscopes";
 import {Navbar, Nav} from 'react-bootstrap'
@@ -25,7 +25,7 @@ function Revistion(){
 <Header  />
 
 <Switch>
-<Route exact path="/">
+<Route exact path="/Allscopes">
     <Allscopes/>
 </Route>
 <Route path="/reservations">
@@ -34,9 +34,7 @@ function Revistion(){
 
 
 
-    <Route path="*">
-        <NoMatch />
-    </Route>
+    
 
 
 </Switch>
@@ -55,7 +53,7 @@ function Revistion(){
 function Header() {
   return (
     <Navbar bg="light" expand="lg">
-        <LinkContainer to="/">
+        <LinkContainer to="/Allscopes">
 <Navbar.Brand>Allscopes</Navbar.Brand>
 </LinkContainer>
 <Navbar.Toggle aria-controls="basic-navbar-nav" />

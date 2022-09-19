@@ -13,7 +13,9 @@ import Leases from './components/Leases';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Reservations from './components/Reservations';
 import { BrowserRouter , Route } from 'react-router-dom';
-
+import Allleases from './components/Allleases';
+import Find_Reservation from './components/Find_Reservation';
+import Find_Leases from './components/Find_Leases';
 import React from 'react'
 
 function App() {
@@ -29,11 +31,12 @@ function App() {
           <Route path="/find_scope" component={Find_Scope}/>
           <Route path="/scope" component={Scope}/>
          <Route path="/leases" component={Leases}/>
-          <Route path="/noMatch" component={NoMatch}/>
+         <Route path="/find_reservation" component={Find_Reservation}/>
           <Route path="/card1" component={Card1}/>
           <Route path="/revistion" component={Revistion}/>
           <Route path="/leasing" component={Leasing}/>
-
+          <Route path="/allleases" component={Allleases} />
+          <Route path="/find_leases" component={Find_Leases}/>
   
  
  </BrowserRouter>
