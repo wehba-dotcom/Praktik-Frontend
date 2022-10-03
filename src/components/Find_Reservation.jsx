@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 function Find_Reservation(){
 
   
-    const baseURL = "https://central.brkint.dk/api/reservations?ClientId=";
+    const baseURL = "https://central.brkint.dk/api/reservations/?ClientId=";
   
     const ClientId = useRef(null);
     const name = useRef(null);
@@ -25,7 +25,7 @@ function Find_Reservation(){
   
     async function getAllData(e) {
       e.preventDefault();
-        const res = await fetch(`https://central.brkint.dk/api/reservations`,options);
+        const res = await fetch(`https://central.brkint.dk/api/reservations/`,options);
         
   
         const data = await res.json();
@@ -36,11 +36,12 @@ function Find_Reservation(){
       
     }
   
-    async function getDataById() {
+    async function getDataById(e) {
+      e.preventDefault();
       const id = ClientId.current.value;
   
  
-          const res = await fetch(`${baseURL}${id}`,options);
+          const res = await fetch(`	${baseURL}${id}`,options);
   
   
           const data = await res.json();
@@ -86,7 +87,7 @@ function Find_Reservation(){
   
             <input type="text" ref={ClientId} className="form-control ml-2" placeholder="id" />
             <div className="input-group-append">
-              <button className="btn btn-sm btn-primary" onClick={getDataById}>Get by Id</button>
+              <button className="btn btn-sm btn-primary" onClick={getDataById}>Get by ClientId</button>
             </div>
   
             <input type="text" ref={name} className="form-control ml-2" placeholder="Name" />

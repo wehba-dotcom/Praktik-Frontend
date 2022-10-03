@@ -3,10 +3,10 @@ import React, { useRef, useState } from "react";
 function Find_Leases(){
 
   
-    const baseURL = "https://central.brkint.dk/api/reservations?ClientId=";
+    const baseURL = "https://central.brkint.dk/api/leases?ClientID=";
   
+    const ClientID= useRef(null);
     const IPAddress= useRef(null);
-    const name = useRef(null);
   
     const [lease, setLease] = useState(null);
   
@@ -25,7 +25,7 @@ function Find_Leases(){
   
     async function getAllData(e) {
       e.preventDefault();
-        const res = await fetch(`https://central.brkint.dk/api/reservations`,options);
+        const res = await fetch(`https://central.brkint.dk/api/leases`,options);
         
   
         const data = await res.json();
@@ -38,7 +38,7 @@ function Find_Leases(){
   
     async function getDataById(e) {
       e.preventDefault();
-      const id = IPAddress.current.value;
+      const id = ClientID.current.value;
   
  
           const res = await fetch(`${baseURL}${id}`,options);
@@ -54,12 +54,12 @@ function Find_Leases(){
     }
   
     async function getDataByTitle(e) {
-      const title = name.current.value;
+      const title = IPAddress.current.value;
   
     e.preventDefault();
           // const res = await fetch(`${baseURL}/tutorials?title=${title}`);
   
-          let url = new URL(`https://central.brkint.dk/api/reservations?name=${title}`);
+          let url = new URL(`https://central.brkint.dk/api/leases?IPAddress=${title}`);
           
   
           const res = await fetch(url,options);
@@ -80,19 +80,19 @@ function Find_Leases(){
   
     return (
       <div className="card">
-        <div className="card-header text-center" ><h1>Reservation-search-by-scopeid-name</h1></div>
+        <div className="card-header text-center" ><h1>Leases-search-by-IPAddress-name</h1></div>
         <div className="card-body">
           <div className="input-group input-group-sm">
             <button className="btn btn-sm btn-primary" onClick={getAllData}>Get All</button>
   
-            <input type="text" ref={IPAddress} className="form-control ml-2" placeholder="id" />
+            <input type="text" ref={ClientID} className="form-control ml-2" placeholder="ClientID" />
             <div className="input-group-append">
-              <button className="btn btn-sm btn-primary" onClick={getDataById}>Get by Id</button>
+              <button className="btn btn-sm btn-primary" onClick={getDataById}>Get by ClientID</button>
             </div>
   
-            <input type="text" ref={name} className="form-control ml-2" placeholder="Name" />
+            <input type="text" ref={IPAddress} className="form-control ml-2" placeholder="IPAddress" />
             <div className="input-group-append">
-              <button className="btn btn-sm btn-primary" onClick={getDataByTitle}>Find By Name</button>
+              <button className="btn btn-sm btn-primary" onClick={getDataByTitle}>Find By IPAddress</button>
             </div>
   
             <button className="btn btn-sm btn-warning ml-2" onClick={clearGetOutput}>Clear</button>
@@ -113,7 +113,7 @@ function Find_Leases(){
       <th>HostName</th>
       <th>AddressState</th>
         <th>LeaseExpiryTime</th>
-      <th>ScopeId_intt</th>
+      <th>ScopeId_int</th>
         <th>HentetFraDHCP</th>
       <th>IPAddressHostid</th>
       

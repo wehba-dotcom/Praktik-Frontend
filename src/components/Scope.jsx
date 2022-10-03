@@ -24,10 +24,8 @@ function Scope(){
 <Header  />
 
 <Switch>
-<Route   path="/allscopes">
-    <Allscopes/>
-</Route>
-<Route exact path="/">
+
+<Route exact path="/scopes">
     <Scopes/>
 </Route>
 
@@ -52,7 +50,7 @@ function Header() {
     return (
       <div style={{marginTop:'40px'}}>
         <ul className="header">
-          <li> <NavLink  activeClassName="active" to="/allscopes">All Scopes </NavLink></li>
+
           <li><NavLink exact activeClassName="active" to="/scopes">Scopes</NavLink></li>
           <li><NavLink activeClassName="active" to="/find_scope">Find_Scope</NavLink></li>
          

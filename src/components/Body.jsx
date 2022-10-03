@@ -3,15 +3,20 @@ import myimage from "./image2.jpg";
 
 
 function Body( ) {
+  const myStyle = {
+   
   
+   
+  };
   return (
     <div>
-    <div className="navbar bg-dark rounded text-white">
-<h1 >BORNHOLM RGEING  KOMMUNE IT-DEPARMENT</h1>
+    <div className=" text-center text-light rounded bg-dark ">
+<h1 >BORNHOLM Regional municipality IT-DEPARMENT</h1>
 </div>
     <div className="col-md-12 " >
     <div className='card'>
       <div className='card__body'>
+      <img src={myimage}  width="50%" height="50%"/>
       <img src={myimage}  width="50%" height="50%"/>
         <h2 className='card__title'></h2>
         <p className='card__description'></p>

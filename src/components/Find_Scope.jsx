@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 function Find_Scope(){
 
   
-    const baseURL = "https://central.brkint.dk/api/scopes?scopeid=";
+    const baseURL = "https://central.brkint.dk/api/scopes/";
   
     const ScopeId = useRef(null);
     const Name = useRef(null);
@@ -56,9 +56,9 @@ function Find_Scope(){
       const title = Name.current.value;
   
     e.preventDefault();
-          // const res = await fetch(`${baseURL}/tutorials?title=${title}`);
+          
   
-          let url = new URL(`https://central.brkint.dk/api/scopes?name=${title}`);
+          let url = new URL(`https://central.brkint.dk/api/scopes/?name=${title}`);
           
   
           const res = await fetch(url);

@@ -11,13 +11,19 @@ function Home( props) {
     <Body/>
     <div className="row">
      
-    <Card1 name="Scope" see={<button style={{
+    <Card1 name="Scope" description="DHCP scopes in the network of BRK" see={<button style={{
         backgroundColor: 'grey'
         
-      }} onClick={()=> history.push("/find_scope") } >Go TO Scopes!</button>} description="data about scopes"/>
+      }} onClick={()=> history.push("/scope") } >Go TO Scopes !</button>} />
 
-    <Card1 name="Revistion" see={<a href='/find_reservation'><h2 style={{ color: 'grey' }}>Reservations</h2></a>} description="data about revistion"/>
-    <Card1 name="leases" see={<a href='/find_leases'><h2 style={{ color: 'grey' }}>leases</h2></a>} description="data about leases" />
+    <Card1 name="Revistion" see={<button style={{
+        backgroundColor: 'grey'
+        
+      }} onClick={()=> history.push("/find_reservation") } >Go TO Reservations !</button>} description="Reservations related to all DHCP scopes"/>
+    <Card1 name="leases" see={<button style={{
+        backgroundColor: 'grey'
+        
+      }} onClick={()=> history.push("/find_leases") } >Go TO leases !</button>} description="Active and inactive leases related to all DHCP scopes" />
     </div>
     </div>
   );
