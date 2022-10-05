@@ -80,6 +80,9 @@ function Find_Leases(){
   
     return (
       <div className="card">
+         <div className=" text-center text-light rounded bg-dark ">
+<h1>BORNHOLM Regional municipality IT-DEPARMENT</h1>
+</div>
         <div className="card-header text-center" ><h1>Leases-search-by-IPAddress-name</h1></div>
         <div className="card-body">
           <div className="input-group input-group-sm">

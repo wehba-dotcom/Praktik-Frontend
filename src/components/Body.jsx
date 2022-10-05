@@ -1,5 +1,6 @@
 import React from 'react';
 import myimage from "./image2.jpg";
+import Headheader from './Headheader';
 
 
 function Body( ) {
@@ -10,8 +11,9 @@ function Body( ) {
   };
   return (
     <div>
+      <Headheader/>
     <div className=" text-center text-light rounded bg-dark ">
-<h1 >BORNHOLM Regional municipality IT-DEPARMENT</h1>
+<h1>BORNHOLM Regional municipality IT-DEPARMENT</h1>
 </div>
     <div className="col-md-12 " >
     <div className='card'>

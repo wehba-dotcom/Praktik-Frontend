@@ -8,6 +8,7 @@ function Home( props) {
   const history = useHistory()
   return (
     <div>
+      
     <Body/>
     <div className="row">
      

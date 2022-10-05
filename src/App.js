@@ -16,6 +16,8 @@ import { BrowserRouter , Route } from 'react-router-dom';
 import Allleases from './components/Allleases';
 import Find_Reservation from './components/Find_Reservation';
 import Find_Leases from './components/Find_Leases';
+import Headheader from './components/Headheader';
+import About from './components/About';
 import React from 'react'
 
 function App() {
@@ -24,6 +26,7 @@ function App() {
 
  
            <Route exact path="/" component={Home}/>
+         
            <Route path="/reservations"  component={Reservations}/>
            <Route  path="/allscopes"  component={Allscopes}/>
            <Route  path="/nomatch"  component={NoMatch}/>
@@ -37,7 +40,9 @@ function App() {
           <Route path="/leasing" component={Leasing}/>
           <Route path="/allleases" component={Allleases} />
           <Route path="/find_leases" component={Find_Leases}/>
-  
+          <Route path="/ headheader" component={ Headheader}/>
+          <Route path="/about" component={About}/>
+       
  
  </BrowserRouter>
   )

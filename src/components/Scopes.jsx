@@ -38,7 +38,9 @@ function Scopes() {
      
     
     <div className="tablediv">
-        <p style={{ textAlign: "center" }}>All Scopes</p>
+         <div className=" text-center text-light rounded bg-dark ">
+<h1>BORNHOLM Regional municipality IT-DEPARMENT</h1>
+</div>
         <table style={{ widtd: 750 }} className="table table-striped">
     <thead>
     <tr
