@@ -12,9 +12,7 @@ function Body( ) {
   return (
     <div>
       <Headheader/>
-    <div className=" text-center text-light rounded bg-dark ">
-<h1>BORNHOLM Regional municipality IT-DEPARMENT</h1>
-</div>
+    
     <div className="col-md-12 " >
     <div className='card'>
       <div className='card__body'>

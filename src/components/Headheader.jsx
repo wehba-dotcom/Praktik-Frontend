@@ -16,9 +16,9 @@ function Headheader( ) {
    
   };
   return (
-    <Navbar bg='liegt' expand="lg">
+    <Navbar collapseOnSelect expand="lg" bg='secondary' variant="dark">
       <Container fluid>
-        <Navbar.Brand href="#"> BRK-IT-DEPARMENT</Navbar.Brand>
+        <Navbar.Brand href="#home"> <h1>BORNHOLM Regional municipality IT-DEPARMENT</h1></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -42,6 +42,8 @@ function Headheader( ) {
               Login
             </Nav.Link>
           </Nav>
+          
+
           <Form className="d-flex">
             <Form.Control
               type="search"
@@ -49,7 +51,8 @@ function Headheader( ) {
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-success">Search</Button>
+           
+            <Button variant="outline-light">Search</Button>
           </Form>
         </Navbar.Collapse>
       </Container>
