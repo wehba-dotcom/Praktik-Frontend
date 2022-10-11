@@ -18,6 +18,7 @@ import Find_Reservation from './components/Find_Reservation';
 import Find_Leases from './components/Find_Leases';
 import Headheader from './components/Headheader';
 import About from './components/About';
+
 import React from 'react'
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
           <Route path="/find_leases" component={Find_Leases}/>
           <Route path="/ headheader" component={ Headheader}/>
           <Route path="/about" component={About}/>
+          
        
  
  </BrowserRouter>

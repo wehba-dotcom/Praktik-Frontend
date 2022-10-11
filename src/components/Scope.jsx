@@ -48,8 +48,8 @@ function Scope(){
 }
 function Header() {
     return (
-      <div style={{marginTop:'40px'}}>
-        
+      <div style={{ marginTop:'40px' }}   >
+         
         <ul className="header">
 
           <li><NavLink exact activeClassName="active" to="/scopes">Scopes</NavLink></li>

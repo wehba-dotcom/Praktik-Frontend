@@ -2,6 +2,7 @@
 import React from 'react';
 import Card1 from './Card1';
 import Body from './Body';
+
 import { useHistory } from 'react-router-dom';
 
 function Home( props) {
@@ -26,7 +27,9 @@ function Home( props) {
         
       }} onClick={()=> history.push("/find_leases") } >Go TO leases !</button>} description="Active and inactive leases related to all DHCP scopes" />
     </div>
+    
     </div>
+   
   );
 }
 

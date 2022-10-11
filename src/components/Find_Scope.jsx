@@ -79,7 +79,7 @@ function Find_Scope(){
   
     return (
       <div className="card">
-         <div className=" text-center text-light rounded bg-dark ">
+         <div className=" text-center text-light rounded bg-secondary ">
 <h1>BORNHOLM Regional municipality IT-DEPARMENT</h1>
 </div>
         <div className="card-header text-center" ><h1>Scopes-search-by-scopeid-name</h1></div>
