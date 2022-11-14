@@ -12,41 +12,85 @@ import NoMatch from './components/NoMatch';
 import Leases from './components/Leases';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Reservations from './components/Reservations';
-import { BrowserRouter , Route } from 'react-router-dom';
+import facade from './facade';
+import { Container, Alert } from 'react-bootstrap';
 import Allleases from './components/Allleases';
 import Find_Reservation from './components/Find_Reservation';
 import Find_Leases from './components/Find_Leases';
 import Headheader from './components/Headheader';
 import About from './components/About';
-
+import SignIn from "./components/SignIn"
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import React from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState } from 'react';
+import AllUsers from './components/AllUsers';
+import ModifyUsers from './components/ModifyUsers';
+import SignUp from './components/SignUp';
+
+
+
 
 function App() {
-  return (
-    <BrowserRouter>
 
- 
-           <Route exact path="/" component={Home}/>
-         
-           <Route path="/reservations"  component={Reservations}/>
-           <Route  path="/allscopes"  component={Allscopes}/>
-           <Route  path="/nomatch"  component={NoMatch}/>
-          <Route path="/scopes" component={Scopes}/>
-          <Route path="/find_scope" component={Find_Scope}/>
-          <Route path="/scope" component={Scope}/>
-         <Route path="/leases" component={Leases}/>
-         <Route path="/find_reservation" component={Find_Reservation}/>
-          <Route path="/card1" component={Card1}/>
-          <Route path="/revistion" component={Revistion}/>
-          <Route path="/leasing" component={Leasing}/>
-          <Route path="/allleases" component={Allleases} />
-          <Route path="/find_leases" component={Find_Leases}/>
-          <Route path="/ headheader" component={ Headheader}/>
-          <Route path="/about" component={About}/>
-          
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('  SignIn and you will have agood detials');
+
+  const logout = () => {
+    facade.logout();
+    setLoggedIn(false);
+    setErrorMessage('Logged out.')
+  };
+
+
+
+  return (
+    <Container>
+    <Router>
+     
+      <Switch>
+        <Route  exact path="/">
+          <Home/>
+        </Route>
        
- 
- </BrowserRouter>
+        <Route  path="/signin">
+          <SignIn
+          logout={logout}
+          loggedIn={loggedIn}
+          setLoggedIn={setLoggedIn}
+          
+          facade={facade}
+          setErrorMessage={setErrorMessage}
+          />
+          </Route>
+        <Route path="/find_scope">
+          {facade.hasUserAccess('user', loggedIn) && 
+            <Find_Scope facade={facade} errorMessage={errorMessage} setErrorMessage={setErrorMessage}/>}
+        </Route>
+        <Route path="/find_reservation">
+          {facade.hasUserAccess('user', loggedIn) && 
+            <Find_Reservation  facade={facade} setErrorMessage={setErrorMessage} errorMessage={errorMessage} />}
+        </Route>
+        <Route path="/find_leases">
+          {facade.hasUserAccess('user', loggedIn) && 
+            <Find_Leases facade={facade} errorMessage={errorMessage} setErrorMessage={setErrorMessage} />}
+        </Route>
+       
+        <Route path="/modifyusers">
+          {facade.hasUserAccess('admin', loggedIn) && 
+            <ModifyUsers facade={facade} errorMessage={errorMessage} setErrorMessage={setErrorMessage} />}
+        </Route>
+        <Route path="/allusers">
+          {facade.hasUserAccess('admin', loggedIn) && 
+            <AllUsers facade={facade} errorMessage={errorMessage} setErrorMessage={setErrorMessage} />}
+        </Route>
+        <Route path="*">
+          <NoMatch />
+        </Route>
+      </Switch>
+    </Router>
+    <Alert className="mt-4" >Status: {errorMessage}</Alert>
+  </Container>
   )
 }
 

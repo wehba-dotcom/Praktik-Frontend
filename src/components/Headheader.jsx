@@ -18,7 +18,7 @@ function Headheader( ) {
   return (
     <Navbar collapseOnSelect expand="lg" bg='secondary' variant="dark">
       <Container fluid>
-        <Navbar.Brand href="#home"> <h1>BORNHOLM Regional municipality IT-DEPARMENT</h1></Navbar.Brand>
+        <Navbar.Brand href="#home"> <h1>Bornholm Regional Municipality IT-DEPARMENT</h1></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -38,8 +38,8 @@ function Headheader( ) {
                About
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#" disabled>
-              Login
+            <Nav.Link href="/signin">
+              SignIn
             </Nav.Link>
           </Nav>
           

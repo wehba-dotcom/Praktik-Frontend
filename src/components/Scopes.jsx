@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "../styles/mypage.css";
 
+
+
+
 function Scopes() {
   const [scope, setScope] = useState([]);
 
@@ -26,6 +29,9 @@ function Scopes() {
     }
   };
 
+
+
+
   useEffect(() => {
     fetchData();
   });
@@ -33,30 +39,27 @@ function Scopes() {
   
 
   return (
-    
-    
-     
-    
+
     <div className="tablediv">
          <div className=" text-center text-light rounded bg-secondary ">
-<h1>BORNHOLM Regional municipality IT-DEPARMENT</h1>
-</div>
+            <h1>Bornholm Regional Municipality IT-DEPARMENT</h1>
+   </div>
         <table style={{ widtd: 750 }} className="table table-striped">
     <thead>
     <tr
               style={{ backgroundColor: "darkgray" }}
               className="myGoalTableContent"
             >
-      <th>ScopeId_In</th>
-      <th>ScopeId</th>
-      <th>SubnetMask</th>
+        <th>ScopeId_In</th>
+        <th>ScopeId</th>
+        <th>SubnetMask</th>
         <th>SubnetMask_int</th>
-      <th>StartRange</th>
-      <th>StartRange_int</th>
+        <th>StartRange</th>
+        <th>StartRange_int</th>
         <th>EndRange</th>
-      <th>EndRange_int</th>
+        <th>EndRange_int</th>
         <th>Description</th>
-      <th>LeaseDuration</th>
+        <th>LeaseDuration</th>
         <th>MaxBootpClient</th>
         <th>Name</th>
         <th>NapEnable</th>
@@ -72,24 +75,21 @@ function Scopes() {
         <th>StartRange_bin</th>
         <th>EndRange_bin</th>
         <th>ScopeNetId_bin</th>
-      <th>Activ_leases_refresh</th>
-    
-      
-    
+        <th>Activ_leases_refresh</th>
         </tr>
     </thead>
     <tbody  >
 {scope.map((sc) => (<tr>
-  <td>{sc.ScopeId_Int}</td>
-      <td>{sc.ScopeId}</td>
-      <td>{sc.SubnetMask}</td>
+        <td>{sc.ScopeId_Int}</td>
+        <td>{sc.ScopeId}</td>
+        <td>{sc.SubnetMask}</td>
         <td>{sc.SubnetMask_int}</td>
-      <td>{sc.StartRange}</td>
-      <td>{sc.StartRange_int}</td>
+        <td>{sc.StartRange}</td>
+        <td>{sc.StartRange_int}</td>
         <td>{sc.EndRange}</td>
-      <td>{sc.EndRange_int}</td>
+        <td>{sc.EndRange_int}</td>
         <td>{sc.Description}</td>
-      <td>{sc.LeaseDuration}</td>
+        <td>{sc.LeaseDuration}</td>
         <td>{sc.MaxBootpClient}</td>
         <td>{sc.Name}</td>
         <td>{sc.NapEnable}</td>
@@ -105,9 +105,7 @@ function Scopes() {
         <td>{sc.StartRange_bin}</td>
         <td>{sc.EndRange_bin}</td>
         <td>{sc.ScopeNetId_bin}</td>
-      <td>{sc.Activ_leases_refresh}</td>
-      
-    
+        <td>{sc.Activ_leases_refresh}</td>
     </tr>))}
     </tbody>
 </table>

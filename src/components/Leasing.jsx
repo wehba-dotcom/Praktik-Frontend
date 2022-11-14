@@ -17,7 +17,7 @@ function Leasing() {
   const fetchData = async () => {
     try{
       const response = await fetch(
-        "https://central.brkint.dk/api/leases",options
+        "https://central.brkint.dk/api/dhcp/leases",options
       );
       const data = await response.json();
       setScope(data);
