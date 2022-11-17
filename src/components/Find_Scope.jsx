@@ -4,7 +4,7 @@ import React, { useRef, useState } from "react";
 
 function Find_Scope(){
 
-    const baseURL = "https://central.brkint.dk/api/scopes/";
+    const baseURL = "https://central.brkint.dk/api/dhcp/scopes";
     const ScopeId = useRef(null);
     const Name = useRef(null);
     const [getResult, setGetResult] = useState(null);
@@ -26,7 +26,7 @@ function Find_Scope(){
   
     async function getAllData(e) {
       e.preventDefault();
-        const res = await fetch(`https://central.brkint.dk/api/scopes`,options);
+        const res = await fetch(baseURL,options);
         const data = await res.json();
         setGetResult(data);
     }
@@ -45,7 +45,7 @@ function Find_Scope(){
     async function getDataByTitle(e) {
         const title = Name.current.value;
           e.preventDefault();
-            let url = new URL(`https://central.brkint.dk/api/scopes/?name=${title}`);
+            let url = new URL(`https://central.brkint.dk/api/dhcp/scopes/?name=${title}`);
             const res = await fetch(url);
           const data = await res.json();
           setGetResult(data);

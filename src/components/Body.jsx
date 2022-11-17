@@ -11,8 +11,6 @@ function Body( ) {
   };
   return (
     <div>
-      <Headheader/>
-    
     <div className="col-md-12 " >
     <div className='card'>
       <div className='card__body'>

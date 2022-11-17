@@ -25,7 +25,7 @@ function Home( props) {
     <Card1 name="leases" see={<button style={{
         backgroundColor: 'grey'
         
-      }} onClick={()=> history.push("/find_leases") } >Go TO leases !</button>} description="Active and inactive leases related to all DHCP scopes" />
+      }} onClick={()=> history.push("/find_leases") } >Go TO leases !</button>} description="Active and inactive leases- DHCP scopes" />
     </div>
     
     </div>

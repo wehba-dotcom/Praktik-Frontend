@@ -9,7 +9,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Find_Scope from './Find_Scope';
 import Home from './Home';
 
-function Headheader( ) {
+function Headheader( loggedIn,logout) {
   const myStyle = {
    
   
@@ -42,7 +42,7 @@ function Headheader( ) {
               SignIn
             </Nav.Link>
           </Nav>
-          
+        
 
           <Form className="d-flex">
             <Form.Control

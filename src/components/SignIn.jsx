@@ -1,34 +1,40 @@
 import React, { useState } from "react";
 import {Modal} from 'react-bootstrap'
-
 import SignUp from "./SignUp";
-export default function SignIn({ login, facade }) {
+import LogIn from "./LogIn";
+export default function SignIn({  logout, loggedIn, setLoggedIn, facade, setErrorMessage}) {
     const init = { login_name: "", password: "" };
     const [loginCredentials, setLoginCredentials] = useState(init);
     const [showModal, setShowModal] = useState(false)
+    const [isAdmin, setIsAdmin] = useState(0);
 
     const handleClose = () => setShowModal(false)
     const handleOpen = () => {
         setShowModal(true)
     }
+    function handleHttpErrors(res) {
+      if (!res.ok) {
+        return Promise.reject({ status: res.status, fullError: res.json() })
+      }
+      return res.json();
+     }
+
+  
 
 
-    const performLogin = (evt) => {
-      evt.preventDefault();
-      login(loginCredentials.login_name, loginCredentials.password);
-    }
-    const onChange = (evt) => {
-      setLoginCredentials({ ...loginCredentials,[evt.target.id]: evt.target.value })
-    }
+   
    
     return (
-      <div className="login-card" >
-        <h2>Login</h2>
-        <form onChange={onChange} >
-          <input className="login-input" placeholder="User Name" id="username" /> <br />
-          <input className="login-input" type="password" placeholder="Password" id="password" /> <br />
-          <button className="login-btn" onClick={performLogin}>Login</button>
-        </form>
+      <div style={{textAlign:"center"}}>
+      {!loggedIn ? (
+        <LogIn facade={facade} setLoggedIn={setLoggedIn} setErrorMessage={setErrorMessage} />
+      ) : (
+        <div>
+          <p><button onClick={logout}>Logout</button></p>
+       
+        </div>
+      )}
+    
         <button className="register-btn" onClick={handleOpen}> register</button>
         <Modal show={showModal} onHide={handleClose}>
         <Modal.Header closeButton>
