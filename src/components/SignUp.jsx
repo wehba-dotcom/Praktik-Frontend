@@ -28,8 +28,8 @@ export default function SignUp({ facade })
             
            
             <form onChange={onChange} >
-          <input className="login-input"  placeholder="User Name" id="login_name" />
-          <input className="login-input"  type="password" placeholder="Password" id="password" />
+          <input className="login-input"  placeholder="User Name" id="login_name" /> <br /><br />
+          <input className="login-input"  type="password" placeholder="Password" id="password" /> <br /><br />
           <button className="login-btn" onClick={create}>Create</button>
         </form>
             

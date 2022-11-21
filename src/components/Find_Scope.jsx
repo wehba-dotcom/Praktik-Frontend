@@ -4,7 +4,7 @@ import React, { useRef, useState } from "react";
 
 function Find_Scope(){
 
-    const baseURL = "https://central.brkint.dk/api/dhcp/scopes";
+    const baseURL = "https://central.brkint.dk/api/scopes";
     const ScopeId = useRef(null);
     const Name = useRef(null);
     const [getResult, setGetResult] = useState(null);

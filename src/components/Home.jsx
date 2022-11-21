@@ -5,7 +5,7 @@ import Body from './Body';
 
 import { useHistory } from 'react-router-dom';
 
-function Home( props) {
+function Home( ) {
   const history = useHistory()
   return (
     <div>

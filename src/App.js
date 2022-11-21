@@ -14,11 +14,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Reservations from './components/Reservations';
 import facade from './facade';
 import { Container, Alert } from 'react-bootstrap';
-import Allleases from './components/Allleases';
 import Find_Reservation from './components/Find_Reservation';
 import Find_Leases from './components/Find_Leases';
 import Headheader from './components/Headheader';
-import About from './components/About';
 import SignIn from "./components/SignIn"
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import React from 'react'
@@ -26,27 +24,25 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState,useEffect } from 'react';
 import AllUsers from './components/AllUsers';
 import ModifyUsers from './components/ModifyUsers';
-import SignUp from './components/SignUp';
-import Facade from "./facade";
-
-
 
 function App() {
 
-
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [userRole, setUserRole]=useState("none");
     const [loggedIn, setLoggedIn] = useState(false);
-    const [errorMessage, setErrorMessage] = useState('  SignIn and you will have agood detials');
+    const [errorMessage, setErrorMessage] = useState('  SignIn and you will have all detials');
   
     const logout = () => {
-     
+     setUserRole("none")
       setLoggedIn(false);
+      setIsAdmin(false)
       setErrorMessage('Logged out.')
     };
   
     return (
       <Container>
         <Router>
-          <Headheader facade={facade} loggedIn={loggedIn} />
+          <Headheader facade={facade} loggedIn={loggedIn} isAdmin={isAdmin} userRole = {userRole}/>
           <Switch>
             <Route  exact path="/">
               <Home/>
@@ -58,19 +54,24 @@ function App() {
               setLoggedIn={setLoggedIn}
               facade={facade}
               setErrorMessage={setErrorMessage}
+              setIsAdmin={setIsAdmin}
+              setUserRole={setUserRole}
               />
               </Route>
-            <Route path="/find_scopes">
-              
-                <Find_Scope facade={facade} setErrorMessage={setErrorMessage}/>
-            </Route>
+            <Route path="/find_scope">
+              {facade.hasUserAccess(isAdmin,loggedIn ,"user",userRole)&& (
+                <Find_Scope facade={facade} setErrorMessage={setErrorMessage} isAdmin={isAdmin}/>)}            </Route>
             <Route path="/find_reservation">
-              {
-                <Find_Reservation facade={facade} setErrorMessage={setErrorMessage}/>}
+              {facade.hasUserAccess(isAdmin,loggedIn ,"user",userRole)&&(
+                <Find_Reservation facade={facade} setErrorMessage={setErrorMessage} isAdmin={isAdmin}/>)}
             </Route>
             <Route path="/find_leases">
-              {
-                <Find_Leases facade={facade} setErrorMessage={setErrorMessage}/>}
+              {facade.hasUserAccess(isAdmin,loggedIn ,"user",userRole)&& (
+                <Find_Leases facade={facade} setErrorMessage={setErrorMessage}/>)}
+            </Route>
+            <Route path="/allusers">
+              {facade.hasUserAccess(isAdmin,loggedIn ,"admin",userRole)&& (
+                <AllUsers facade={facade} setErrorMessage={setErrorMessage} />)}
             </Route>
             <Route path="/modifyusers">
               {

@@ -2,32 +2,25 @@ import React, { useState } from "react";
 import {Modal} from 'react-bootstrap'
 import SignUp from "./SignUp";
 import LogIn from "./LogIn";
-export default function SignIn({  logout, loggedIn, setLoggedIn, facade, setErrorMessage}) {
-    const init = { login_name: "", password: "" };
-    const [loginCredentials, setLoginCredentials] = useState(init);
+
+
+
+
+export default function SignIn({  logout, loggedIn, setLoggedIn, facade, setErrorMessage, setIsAdmin,setUserRole}) {
+   
+  
     const [showModal, setShowModal] = useState(false)
-    const [isAdmin, setIsAdmin] = useState(0);
 
     const handleClose = () => setShowModal(false)
     const handleOpen = () => {
         setShowModal(true)
     }
-    function handleHttpErrors(res) {
-      if (!res.ok) {
-        return Promise.reject({ status: res.status, fullError: res.json() })
-      }
-      return res.json();
-     }
 
-  
-
-
-   
    
     return (
       <div style={{textAlign:"center"}}>
       {!loggedIn ? (
-        <LogIn facade={facade} setLoggedIn={setLoggedIn} setErrorMessage={setErrorMessage} />
+        <LogIn  facade={facade} setLoggedIn={setLoggedIn} setErrorMessage={setErrorMessage} setIsAdmin={setIsAdmin} setUserRole={setUserRole}/>
       ) : (
         <div>
           <p><button onClick={logout}>Logout</button></p>
