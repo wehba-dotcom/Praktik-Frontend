@@ -1,19 +1,10 @@
 import './App.css';
-
 import Home from './components/Home.jsx';
-import Scopes from './components/Scopes';
 import Find_Scope from './components/Find_Scope.jsx';
-import Scope from './components/Scope.jsx';
-import Allscopes from './components/Allscopes';
-import Leasing from './components/Leasing';
-import Revistion from './components/Revistion';
-import Card1 from './components/Card1';
 import NoMatch from './components/NoMatch';
-import Leases from './components/Leases';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Reservations from './components/Reservations';
 import facade from './facade';
-import { Container, Alert } from 'react-bootstrap';
+import { Container, Alert ,Modal} from 'react-bootstrap';
 import Find_Reservation from './components/Find_Reservation';
 import Find_Leases from './components/Find_Leases';
 import Headheader from './components/Headheader';
@@ -21,23 +12,35 @@ import SignIn from "./components/SignIn"
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState,useEffect } from 'react';
+import { useState } from 'react';
 import AllUsers from './components/AllUsers';
 import ModifyUsers from './components/ModifyUsers';
+import  Useredit from './components/Useredit';
+
 
 function App() {
 
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [userRole, setUserRole]=useState("none");
+    const [isAdmin, setIsAdmin] = useState(false);
+    const [userRole, setUserRole]=useState("none");
     const [loggedIn, setLoggedIn] = useState(false);
     const [errorMessage, setErrorMessage] = useState('  SignIn and you will have all detials');
   
-    const logout = () => {
-     setUserRole("none")
-      setLoggedIn(false);
-      setIsAdmin(false)
-      setErrorMessage('Logged out.')
-    };
+
+    
+    const [editMode,seteditMode]= useState(false)
+    const [user,setUser]= useState(null)
+      const logout = () => {
+      setUserRole("none")
+        setLoggedIn(false);
+        setIsAdmin(false)
+        setErrorMessage('Logged out.')
+      };
+    function onEditUser(user){
+   
+      setUser(user)
+      seteditMode(true)
+      console.log(user)
+    }
   
     return (
       <Container>
@@ -74,8 +77,12 @@ function App() {
                 <AllUsers facade={facade} setErrorMessage={setErrorMessage} />)}
             </Route>
             <Route path="/modifyusers">
-              {
-                <ModifyUsers facade={facade} setErrorMessage={setErrorMessage} />}
+              {facade.hasUserAccess(isAdmin,loggedIn ,"admin",userRole)&& (
+                <ModifyUsers facade={facade} setErrorMessage={setErrorMessage} onEditUser={onEditUser} user={user} />)}
+            </Route>
+            <Route path="/useredit/:id">
+              {facade.hasUserAccess(isAdmin,loggedIn ,"admin",userRole)&& (
+                <Useredit facade={facade} setErrorMessage={setErrorMessage} onEditUser={onEditUser} editMode={editMode} user={user}/>)}
             </Route>
             <Route path="*">
               <NoMatch />

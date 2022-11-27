@@ -93,12 +93,14 @@ function AllUsers(){
           <th>User-ID</th>
           <th>Name</th>
           <th>Password</th>
+          <th>Is-Admin</th>
         </tr>
     </thead> <tbody>
 {getResult.map((usr) => (<tr>
         <td>{usr.ID}</td>
         <td>{usr.login_name}</td>
         <td>{usr.password}</td>
+        <td>{usr.is_admin}</td>
     </tr>))}
     </tbody></table></div>}</pre></div> }
         </div>

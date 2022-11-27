@@ -1,9 +1,9 @@
 import React,{useState} from "react";
+import "../styles/form.css";
 
 
 
-
-export default function SignUp({ facade })
+export default function SignUp({ facade ,getResult,editMode})
 {
     
     const init = { login_name: "", password: "" };
@@ -28,7 +28,7 @@ export default function SignUp({ facade })
             
            
             <form onChange={onChange} >
-          <input className="login-input"  placeholder="User Name" id="login_name" /> <br /><br />
+          <input className="login-input"  placeholder="User Name" defaultValue={editMode ? getResult.login_name :""} id="login_name" /> <br /><br />
           <input className="login-input"  type="password" placeholder="Password" id="password" /> <br /><br />
           <button className="login-btn" onClick={create}>Create</button>
         </form>

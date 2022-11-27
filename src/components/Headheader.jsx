@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-
+import "../styles/form.css";
 
 export default function Headheader({facade, loggedIn, isAdmin,userRole}) {
   
@@ -20,6 +20,10 @@ export default function Headheader({facade, loggedIn, isAdmin,userRole}) {
         {facade.hasUserAccess(isAdmin,loggedIn ,"admin",userRole)&& (
           <li><NavLink activeClassName="active" to="/allusers"> All Users</NavLink></li>
         )}
+         {facade.hasUserAccess(isAdmin,loggedIn ,"admin",userRole)&& (
+          <li><NavLink activeClassName="active" to="/modifyusers"> Modify Users</NavLink></li>
+        )}
+        
          <li><NavLink  activeClassName="active" to="/signin">SignIn</NavLink></li>
       </ul>
     </div>

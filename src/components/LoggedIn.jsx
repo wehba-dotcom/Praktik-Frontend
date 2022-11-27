@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-
+import "../styles/form.css";
 
 export default function LoggedIn({facade}) {
    

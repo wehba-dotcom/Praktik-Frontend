@@ -1,2 +1,3 @@
-const URL1 = "https://central.brkint.dk/api/scopes";
-export default URL1;
+const URL = "https://central.brkint.dk/api/dhcp/user";
+const URL1 = "https://central.brkint.dk/api/dhcp/allusers";
+export default URL;
