@@ -1,31 +1,50 @@
-import React ,{useState,useEffect,useRef} from "react";
-import {useHistory,useParams} from "react-router-dom"
+import React ,{useState,useEffect} from "react";
+import {useParams} from "react-router-dom"
+import  {useNavigate} from "react"
 import {Container} from 'react-bootstrap'
+import Button from 'react-bootstrap/Button';
+import {Json} from 'react';
+function handleHttpErrors(res) {
+  if (!res.ok) {
+    return Promise.reject({ status: res.status, fullError: res.json() })
+  }
+  return res.json();
+}
 
-export default  function Useredit(){
-/*  const[editUser,setEdituser] = useState({login_name:"", password:""})*/
 
-  const login_name = useRef(null);
-  const password = useRef(null);
-  
 
-  const [putResult, setPutResult] = useState({login_name: "",password: ""});
-const history= useHistory()
+
+export default  function Useredit({facade}){
+
+
+
+
+const [ID,setUserID]= useState(0)
+const [is_admin,setIsadmin]=useState()
+ const[putResult,setPutResult] = useState([])
+ const[login_name,setLoginname] = useState("")
+ const[password,setPassword] = useState("")
 const {id} = useParams();
+
 const baseURL="https://central.brkint.dk/api/dhcp/allusers/"
 
-useEffect(()=>{
+
 const edituserid= async()=>{
 const reqdata= await fetch(`${baseURL}${id}`);
 const res = await reqdata.json();
-//setPutResult( { ...putResult, [evt.target.id]: evt.target.value });
+setUserID(res[0].ID)
+setIsadmin(res[0].is_admin)
 setPutResult(res)
+setLoginname(res[0].login_name)
+setPassword(res[0].password)
 /*console.log(res);
 console.log(putResult)
 console.log(res[0].login_name)*/
 }
-
+useEffect(()=>{
 edituserid();
+
+
 },[]);
 console.log(putResult)
 /*async function putData() {
@@ -69,19 +88,19 @@ console.log(putResult)
 
 
 }*/
-const handeledit=((e)=>{
-setPutResult({ ...putResult, [e.target.login_name]: e.target.value })
-console.log(putResult)
-})
+const onChange = (evt) => {
+  setPutResult({ ...putResult,[evt.target.login_name]: evt.target.value })
+}
 
-/*const updateData = (put,true) =>
+
+/*function updateData (e)
     {
      
-        const options = makeOptions("put", true); //True add's the token
-        return fetch(baseURL + id , options)
+        const options = makeOptions("put", {setLogin_name:e.target.value,setPassword:e.target.value}); 
+       fetch(`${baseURL}${id}`, options)
          
             .then((data) => setPutResult(data))
-    }*/
+    }
 
 const makeOptions= (method,body) =>{
    var opts = {
@@ -95,57 +114,66 @@ const makeOptions= (method,body) =>{
    if (body) {
      opts.body = JSON.stringify(body);
    }
-   return opts;
- }
+  
+ }*/
 
 
- const updateData = (login_name,password,e) => {
-  e.preventDefult()
-  const options = makeOptions("PUT", {login_name: login_name, password: password });
- fetch(`${baseURL}${id}` , options)
-setTimeout=(()=>{
-  history.push("/modifyusers")
-},2000)
-}
+ const updateUser = (evt) =>
+ {
+  evt.preventDefault();
+  facade.updateData(putResult.login_name, putResult.password)
+      }
+
+
+      const   updateUsers = (e) =>
+      {
+                console.log("updateData")
+                e.preventDefault()
+                const item = {id,login_name, password,is_admin}
+                console.log(login_name,password,is_admin)
+           fetch(`${baseURL}${id}`,{
+                method: "PUT",
+                headers: {"content-type": "application/json"},
+                body: JSON.stringify(item)
+                }).then(()=>{
+                
+                }).catch((err)=>{
+                      console.log(err.message)
+                })
+      }
+
+
+  
+     
+  
+  
+
 
     return(
 
-       
         <React.Fragment >
 
             <Container className = "content" >
-        <div className = "row">
-            <div className = "col-sm-12">
-            <h2 className = "mt-4 mb-4 fw-bold" >Up Date User</h2>
-          <form  onSubmit={updateData} className = "row g-3" >
-            <div className = "col-md-3" >
-            <label className = "form-label" > Name </label>
-            <input 
-            type = "text"
-            name = "ligin_name"
-            className = "form-control p-2" 
-      value = {putResult.login_name}
-      onChange={(e)=>handeledit}
-            />
-            </div><br/>
-            <div className = "col-md-3" >
-            <label className = "form-label"> Password </label>
-            <input 
-            type = "text"
-            name = "user_password"
-            className = "form-control p-2" 
-             value = {putResult.password}
-          onChange={(e)=>handeledit}
-            />
-            </div>
-            <div className = "col-md-3">
-            <button type = "submit" className = "btn btn-primary mt-4"> Update </button> 
-            </div>
-            </form>
-       </div>
-        </div>
-        </Container>
-            </React.Fragment>
-  
+       
+                <div className = "row">
+                    <div className = "col-sm-12">
+                    
+                    <form  ><h2 className = "mt-4 mb-4 fw-bold" >UpDate User</h2>
+                
+                 
+                <input onChange ={(e)=>{setLoginname(e.target.value)}} className="login-input" defaultValue={login_name}  id="login_name" /> <br /><br />
+                <input onChange ={(e)=>{setPassword(e.target.value)}} className="password" defaultValue={password}  id="password" /> <br /><br />
+                <input onChange ={(e)=>{setIsadmin(e.target.value)}} className="is_admin" defaultValue={is_admin}  id="is_admin" /> <br /><br />
+                <Button  variant="secondary" className="login-btn" onClick={updateUsers}>Update</Button>
+         
+              
+                   </form>
+              </div>
+              
+                </div>
+      
+              </Container>
+         </React.Fragment>
+           
     )
 }

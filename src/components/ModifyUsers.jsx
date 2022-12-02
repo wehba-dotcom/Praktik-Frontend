@@ -9,7 +9,11 @@ function ModifyUsers({facade,onEditUser,user}){
 
   const [getResult, setGetResult] = useState([]);
   const [showModal, setShowModal] = useState(false)
+  const[login_name,setLogin_name] = useState("")
+  const[password,setPassword] = useState("")
+  const[userId,setUserId] = useState(null)
 
+ 
 
 
   const handleClose = () => setShowModal(false)
@@ -17,8 +21,7 @@ function ModifyUsers({facade,onEditUser,user}){
       setShowModal(true)
   } 
     const baseURL = "https://central.brkint.dk/api/dhcp/allusers/";
-    const Id = useRef(null);
-    const Name = useRef(null);
+   
     
     const fortmatResponse = (res) => {
       return JSON.stringify(res, null, 2);
@@ -44,7 +47,7 @@ function ModifyUsers({facade,onEditUser,user}){
     }
   
 
-    async function getDataById(e) {
+   /* async function getDataById(e) {
       const id = Id.current.value;
       e.preventDefault();
           const res = await fetch(`${baseURL}${id}`);
@@ -62,14 +65,14 @@ function ModifyUsers({facade,onEditUser,user}){
           const data = await res.json();
           setGetResult(data);
        
-    }
+    }*/
 
   
     const clearGetOutput = () => {
       setGetResult(null);
     }
   
-function deleteuser1 (id){
+/*function deleteuser1 (id){
 fetch(`https://central.brkint.dk/api/dhcp/allusers/:id${id}`,{
     method:"DELETE"
 })
@@ -79,13 +82,17 @@ fetch(`https://central.brkint.dk/api/dhcp/allusers/:id${id}`,{
         console.log(response)
     })
 })
-}
+}*/
 function getAllUsers(){
     fetch(`${baseURL}`)
 .then((res)=>{
     res.json()
 .then((response)=>{
         setGetResult(response)
+        setLogin_name(response[0].login_name)
+        setPassword(response[0].password)
+       setUserId(response[0].ID)
+        
         console.log(response)
     })
 })
@@ -109,17 +116,23 @@ function getAllUsers(){
     setShowModal(true)
     onEditUser()
   }*/
-  function onEditUserClick()
-  {
-  
-
-  }
+ 
 
   useEffect(() => {
     getAllUsers()
   },[]);
 
+  function selectUser(ID){
 
+    console.warn("selcted user",getResult[ID-1])
+    let item = getResult[ID-1]
+    
+ setLogin_name(item.login_name)   
+    setPassword(item.password)
+   
+  }
+ // <button className="btn btn-primary" onClick={()=>selectUser(usr.ID)}>EDIT</button>
+/* <Link to={`/useredit/${usr.ID}`}  className="btn btn-success">Edit</Link>*/
     return (
       <div className="tablediv">
       <div className=" text-center text-light rounded bg-secondary ">
@@ -144,12 +157,20 @@ function getAllUsers(){
         <td>{usr.password}  </td>
         <td>{usr.is_name}   </td>
         <td>
-         <Link to={`/useredit/${usr.ID}`}  className="btn btn-success">Edit</Link>
+        <Link to={`/useredit/${usr.ID}`}  className="btn btn-success">Edit</Link>
           <button className="btn btn-primary" onClick={()=>deleteuser(usr.ID)}>DELETE</button>
+        
         </td>
         </tr>))}
         </tbody>
 </table>
+<div>
+  <input type="text" value={login_name}/> <br /> <br />
+  <input type="text"value={password}/> <br /> <br />
+  <button >UPDATe USER</button>
+</div>
+
+
 </div>
 
 

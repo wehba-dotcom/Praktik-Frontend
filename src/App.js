@@ -24,11 +24,12 @@ function App() {
     const [userRole, setUserRole]=useState("none");
     const [loggedIn, setLoggedIn] = useState(false);
     const [errorMessage, setErrorMessage] = useState('  SignIn and you will have all detials');
-  
-
-    
+    const [putResult, setPutResult] = useState({ login_name: "", password: "" });
     const [editMode,seteditMode]= useState(false)
     const [user,setUser]= useState(null)
+   
+
+
       const logout = () => {
       setUserRole("none")
         setLoggedIn(false);
@@ -82,7 +83,7 @@ function App() {
             </Route>
             <Route path="/useredit/:id">
               {facade.hasUserAccess(isAdmin,loggedIn ,"admin",userRole)&& (
-                <Useredit facade={facade} setErrorMessage={setErrorMessage} onEditUser={onEditUser} editMode={editMode} user={user}/>)}
+                <Useredit facade={facade} setErrorMessage={setErrorMessage} />)}
             </Route>
             <Route path="*">
               <NoMatch />

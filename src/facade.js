@@ -1,6 +1,6 @@
 import URL from "./setting";
-
-
+import baseURL from "./setting"
+import {useParams} from "react-router-dom"
 
 
       function handleHttpErrors(res) {
@@ -15,6 +15,8 @@ import URL from "./setting";
 function apiFacade() {
   
 
+
+  const baseURL="https://central.brkint.dk/api/dhcp/allusers/"
 
     const login = (login_name, password, setLoggedIn,  setErrorMessage, setIsAdmin,setUserRole) => {
         const options = makeOptions("POST",{login_name: login_name, password: password });
@@ -43,6 +45,26 @@ function apiFacade() {
               else { console.log("Network error"); }
           })
     }
+
+
+    const updateData = (id) =>
+    {
+       console.log("updateData")
+
+        const options = makeOptions("PUT", {ID:id});
+        
+         fetch(`${baseURL}${id}`, options)
+            .then(handleHttpErrors)
+            .then((data) => {
+            
+            console.log(data)
+           })
+           .catch((error)=> {
+             console.log(error)
+           })
+       
+         }
+   
 
 
     const createUser= (login_name,password) => {
@@ -111,6 +133,7 @@ function apiFacade() {
         login,
         fetchData,
         deleteUser,
+        updateData,
     }
     }
     
