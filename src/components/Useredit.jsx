@@ -37,9 +37,6 @@ setIsadmin(res[0].is_admin)
 setPutResult(res)
 setLoginname(res[0].login_name)
 setPassword(res[0].password)
-/*console.log(res);
-console.log(putResult)
-console.log(res[0].login_name)*/
 }
 useEffect(()=>{
 edituserid();
@@ -92,30 +89,6 @@ const onChange = (evt) => {
   setPutResult({ ...putResult,[evt.target.login_name]: evt.target.value })
 }
 
-
-/*function updateData (e)
-    {
-     
-        const options = makeOptions("put", {setLogin_name:e.target.value,setPassword:e.target.value}); 
-       fetch(`${baseURL}${id}`, options)
-         
-            .then((data) => setPutResult(data))
-    }
-
-const makeOptions= (method,body) =>{
-   var opts = {
-     method: method,
-     headers: {
-       "Content-type": "application/json",
-       'Accept': 'application/json',
-     }
-   }
-   
-   if (body) {
-     opts.body = JSON.stringify(body);
-   }
-  
- }*/
 
 
  const updateUser = (evt) =>

@@ -1,4 +1,5 @@
-import React,{useState} from "react";
+import React,{useState,useNavigat} from "react";
+import { useHistory } from "react-router-dom";
 import "../styles/form.css";
 
 
@@ -9,10 +10,15 @@ export default function SignUp({ facade ,getResult,editMode})
     const init = { login_name: "", password: "" };
     const [Credentials, setCredentials] = useState(init);
 
+
+
     const create = (evt) =>
     {
         evt.preventDefault();
         facade.createUser(Credentials.login_name, Credentials.password)
+       
+
+
     }
     const onChange = (evt) =>
     {

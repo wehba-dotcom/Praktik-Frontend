@@ -17,7 +17,7 @@ function Home( ) {
     <Card1 name="Scope" description="DHCP scopes in the network of BRK" see={<Button variant="secondary" style={{
         backgroundColor: 'grey'
         
-      }} onClick={()=> history.push("/scope") } >Go TO Scopes !</Button>} />
+      }} onClick={()=> history.push("/find_scope") } >Go TO Scopes !</Button>} />
 
     <Card1 name="Revistion" see={<Button variant="secondary" style={{
         backgroundColor: 'grey' 

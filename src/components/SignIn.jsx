@@ -28,7 +28,9 @@ export default function SignIn({  logout, loggedIn, setLoggedIn, facade, setErro
           </div>
         )}
         <br/>
-          <Button variant="secondary" className="register-btn" onClick={handleOpen}> register</Button><br/>
+        {!loggedIn ? (
+         <div>
+          <Button variant="secondary" className="register-btn" onClick={handleOpen}> register</Button><br/></div> ) : (<br/>) }
           <Modal show={showModal} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Create User</Modal.Title>

@@ -46,7 +46,7 @@ function App() {
     return (
       <Container>
         <Router>
-          <Headheader facade={facade} loggedIn={loggedIn} isAdmin={isAdmin} userRole = {userRole}/>
+          <Headheader facade={facade} loggedIn={loggedIn}   logout={logout} isAdmin={isAdmin} userRole = {userRole}/>
           <Switch>
             <Route  exact path="/">
               <Home/>

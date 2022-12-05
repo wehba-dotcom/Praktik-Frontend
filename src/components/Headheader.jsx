@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import "../styles/form.css";
 
-export default function Headheader({facade, loggedIn, isAdmin,userRole}) {
+export default function Headheader({facade, loggedIn,logout, isAdmin,userRole}) {
   
   return (
     <div style={{marginTop:'40px'}}>
@@ -25,6 +25,7 @@ export default function Headheader({facade, loggedIn, isAdmin,userRole}) {
         )}
         
          <li><NavLink  activeClassName="active" to="/signin">SignIn</NavLink></li>
+       
       </ul>
     </div>
   );

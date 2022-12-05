@@ -1,9 +1,9 @@
 import {Modal} from 'react-bootstrap'
-import React, { useRef, useState,useEffect} from "react";
-import {Link} from 'react-router-dom';
-import Edit from './Edit';
+import React, { useState,useEffect} from "react";
+import { Link} from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 import SignUp from './SignUp';
-import Useredit from './Useredit';
+
 
 function ModifyUsers({facade,onEditUser,user}){
 
@@ -13,7 +13,7 @@ function ModifyUsers({facade,onEditUser,user}){
   const[password,setPassword] = useState("")
   const[userId,setUserId] = useState(null)
 
- 
+
 
 
   const handleClose = () => setShowModal(false)
@@ -149,6 +149,13 @@ function getAllUsers(){
             <th>Password   </th>
             <th>Is-Admin   </th>
              <th>Oprations </th>
+             <th> <Button variant="primary" className="register-btn" onClick={handleOpen}>Add User</Button><br/>
+         <Modal show={showModal} onHide={handleClose}>
+         <Modal.Header closeButton>
+           <Modal.Title>Create User</Modal.Title>
+         </Modal.Header>
+         <Modal.Body><SignUp facade={facade}/></Modal.Body>
+       </Modal> </th>
         </tr>
     </thead> <tbody>
     {getResult.map((usr) => (<tr>
@@ -158,22 +165,23 @@ function getAllUsers(){
         <td>{usr.is_name}   </td>
         <td>
         <Link to={`/useredit/${usr.ID}`}  className="btn btn-success">Edit</Link>
-          <button className="btn btn-primary" onClick={()=>deleteuser(usr.ID)}>DELETE</button>
+          <button className="btn btn-danger" onClick={()=>deleteuser(usr.ID)}>DELETE</button>
+        
         
         </td>
-        </tr>))}
+        
+       
+        
+        </tr>
+         
+        
+        ))}
+      
         </tbody>
 </table>
-<div>
-  <input type="text" value={login_name}/> <br /> <br />
-  <input type="text"value={password}/> <br /> <br />
-  <button >UPDATe USER</button>
-</div>
 
 
 </div>
-
-
   );
 }
 
