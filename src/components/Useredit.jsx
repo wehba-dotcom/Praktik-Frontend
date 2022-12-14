@@ -44,47 +44,7 @@ edituserid();
 
 },[]);
 console.log(putResult)
-/*async function putData() {
-  const id = id.current.value;
 
-  if (id) {
-    const putData = {
-      login_name: login_name.current.value,
-      password: password.current.value,
-  
-    };
-
-    try {
-      const res = await fetch(`${baseURL}${id}`, {
-        method: "put",
-        headers: {
-          "Content-Type": "application/json",
-          "x-access-token": "token-value",
-        },
-        body: JSON.stringify(putData),
-      });
-
-      if (!res.ok) {
-        const message = `An error has occured: ${res.status} - ${res.statusText}`;
-        throw new Error(message);
-      }
-
-      const data = await res.json();
-
-      const result = {
-        status: res.status + "-" + res.statusText,
-        headers: { "Content-Type": res.headers.get("Content-Type") },
-        data: data,
-      };
-
-      setPutResult(data);
-    } catch (err) {
-      setPutResult(err.message);
-    }
-  }
-
-
-}*/
 const onChange = (evt) => {
   setPutResult({ ...putResult,[evt.target.login_name]: evt.target.value })
 }
