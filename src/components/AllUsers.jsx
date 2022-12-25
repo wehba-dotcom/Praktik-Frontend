@@ -4,7 +4,7 @@ import React, { useRef, useState } from "react";
 
 function AllUsers(){
 
-    const baseURL = "https://central.brkint.dk/api/dhcp/allusers";
+    const baseURL = "https://central.brkint.dk/api/allusers";
     const ScopeId = useRef(null);
     const Name = useRef(null);
     const [getResult, setGetResult] = useState(null);
@@ -100,7 +100,7 @@ function AllUsers(){
         <td>{usr.ID}</td>
         <td>{usr.login_name}</td>
         <td>{usr.password}</td>
-        <td>{usr.is_admin}</td>
+        <td>{(usr.is_admin === true) ? "true" : "false"}</td>
     </tr>))}
     </tbody></table></div>}</pre></div> }
         </div>

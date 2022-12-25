@@ -45,7 +45,7 @@ function Find_Scope(){
     async function getDataByTitle(e) {
         const title = Name.current.value;
           e.preventDefault();
-            let url = new URL(`https://central.brkint.dk/api/dhcp/scopes/?name=${title}`);
+            let url = new URL(`https://central.brkint.dk/api/scopes/?name=${title}`);
             const res = await fetch(url);
           const data = await res.json();
           setGetResult(data);

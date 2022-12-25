@@ -16,7 +16,7 @@ function apiFacade() {
   
 
 
-  const baseURL="https://central.brkint.dk/api/dhcp/allusers/"
+  const baseURL="https://central.brkint.dk/api/allusers/"
 
     const login = (login_name, password, setLoggedIn,  setErrorMessage, setIsAdmin,setUserRole) => {
         const options = makeOptions("POST",{login_name: login_name, password: password });
@@ -76,7 +76,7 @@ function apiFacade() {
     
     const deleteUser= (id) => {
       const options = makeOptions("DELETE", {ID:id});
-      return fetch(`https://central.brkint.dk/api/dhcp/allusers/${id}`, options)
+      return fetch(`https://central.brkint.dk/api/allusers/${id}`, options)
 
     }
     

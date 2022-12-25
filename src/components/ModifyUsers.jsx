@@ -21,7 +21,7 @@ function ModifyUsers({facade,onEditUser,user}){
   const handleOpen = () => {
       setShowModal(true)
   } 
-    const baseURL = "https://central.brkint.dk/api/dhcp/allusers/";
+    const baseURL = "https://central.brkint.dk/api/allusers/";
    
     
     const fortmatResponse = (res) => {
@@ -130,11 +130,6 @@ function getAllUsers(){
 </div>
   );
 }
-
-
-
-  
-
 
 
 export default ModifyUsers;
