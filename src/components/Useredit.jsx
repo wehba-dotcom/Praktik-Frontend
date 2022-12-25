@@ -26,7 +26,7 @@ const [is_admin,setIsadmin]=useState()
  const[password,setPassword] = useState("")
 const {id} = useParams();
 
-const baseURL="https://central.brkint.dk/api/dhcp/allusers/"
+const baseURL="https://central.brkint.dk/api/allusers/"
 
 
 const edituserid= async()=>{
