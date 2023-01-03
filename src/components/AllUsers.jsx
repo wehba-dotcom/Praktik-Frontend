@@ -5,12 +5,9 @@ import React, { useRef, useState } from "react";
 function AllUsers(){
 
     const baseURL = "https://central.brkint.dk/api/allusers";
-    const ScopeId = useRef(null);
-    const Name = useRef(null);
+    const Id = useRef(null);
     const [getResult, setGetResult] = useState(null);
-    const fortmatResponse = (res) => {
-      return JSON.stringify(res, null, 2);
-    }
+  
 
     var options = {
       method: 'GET',
@@ -33,20 +30,9 @@ function AllUsers(){
   
 
     async function getDataById(e) {
-      const id = ScopeId.current.value;
+      const ID= Id.current.value;
       e.preventDefault();
-          const res = await fetch(`${baseURL}${id}`);
-          const data = await res.json();
-          setGetResult(data);
-       
-    }
-
-  
-    async function getDataByTitle(e) {
-        const title = Name.current.value;
-          e.preventDefault();
-            let url = new URL(`https://central.brkint.dk/api/dhcp/scopes/?name=${title}`);
-            const res = await fetch(url);
+          const res = await fetch("https://central.brkint.dk/api/allusers/"+ID);
           const data = await res.json();
           setGetResult(data);
        
@@ -69,21 +55,16 @@ function AllUsers(){
           <div className="input-group input-group-sm">
             <button className="btn btn-sm btn-primary" onClick={getAllData}>Get All</button>
   
-            <input type="text" ref={ScopeId} className="form-control ml-2" placeholder="id" />
+            <input type="text" ref={Id} className="form-control ml-2" placeholder="id" />
             <div className="input-group-append">
               <button className="btn btn-sm btn-primary" onClick={getDataById}>Get by Id</button>
-            </div>
-  
-            <input type="text" ref={Name} className="form-control ml-2" placeholder="Name" />
-            <div className="input-group-append">
-              <button className="btn btn-sm btn-primary" onClick={getDataByTitle}>Find By Name</button>
             </div>
   
             <button className="btn btn-sm btn-warning ml-2" onClick={clearGetOutput}>Clear</button>
           </div>   
           
           { getResult && <div className="alert alert-secondary mt-2" role="alert"><pre>{ <div className="tablediv">
-        <p style={{ textAlign: "center" }}> Scope</p>
+        <p style={{ textAlign: "center" }}> Users</p>
         <table style={{ widtd: 750 }} className="table table-striped">
     <thead>
     <tr

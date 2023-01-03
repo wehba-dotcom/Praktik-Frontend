@@ -4,7 +4,7 @@ import Find_Scope from './components/Find_Scope.jsx';
 import NoMatch from './components/NoMatch';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import facade from './facade';
-import { Container, Alert ,Modal} from 'react-bootstrap';
+import { Container, Alert } from 'react-bootstrap';
 import Find_Reservation from './components/Find_Reservation';
 import Find_Leases from './components/Find_Leases';
 import Headheader from './components/Headheader';
@@ -16,7 +16,7 @@ import { useState } from 'react';
 import AllUsers from './components/AllUsers';
 import ModifyUsers from './components/ModifyUsers';
 import  Useredit from './components/Useredit';
-
+import About from "./components/About"
 
 function App() {
 
@@ -72,6 +72,10 @@ function App() {
             <Route path="/find_leases">
               {facade.hasUserAccess(isAdmin,loggedIn ,"user",userRole)&& (
                 <Find_Leases facade={facade} setErrorMessage={setErrorMessage}/>)}
+            </Route>
+            <Route path="/about">
+              {facade.hasUserAccess(isAdmin,loggedIn ,"user",userRole)&& (
+                <About facade={facade} setErrorMessage={setErrorMessage}/>)}
             </Route>
             <Route path="/allusers">
               {facade.hasUserAccess(isAdmin,loggedIn ,"admin",userRole)&& (

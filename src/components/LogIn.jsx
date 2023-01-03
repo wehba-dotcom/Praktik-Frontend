@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import {useHistory} from "react-router-dom"
 import Button from 'react-bootstrap/Button';
 
 
 export default function logIn({  setLoggedIn, facade, setErrorMessage, setIsAdmin , setUserRole}) {
+        const history = useHistory();
         const init = { login_name: "", password: "" };
         const [loginCredentials, setLoginCredentials] = useState(init);
       
@@ -10,6 +12,7 @@ export default function logIn({  setLoggedIn, facade, setErrorMessage, setIsAdmi
           evt.preventDefault();
           console.log(loginCredentials.login_name, loginCredentials.password)
           facade.login(loginCredentials.login_name, loginCredentials.password, setLoggedIn, setErrorMessage, setIsAdmin,setUserRole)   
+          history.push("/About")
         }
 
         const onChange = (evt) => {

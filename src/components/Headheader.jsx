@@ -17,6 +17,9 @@ export default function Headheader({facade, loggedIn,logout, isAdmin,userRole}) 
          {facade.hasUserAccess(isAdmin,loggedIn ,"user",userRole)&&(
           <li><NavLink activeClassName="active" to="/find_leases">Leases</NavLink></li>
         )}
+         {facade.hasUserAccess(isAdmin,loggedIn ,"user",userRole)&&(
+          <li><NavLink activeClassName="active" to="/about">About</NavLink></li>
+        )}
         {facade.hasUserAccess(isAdmin,loggedIn ,"admin",userRole)&& (
           <li><NavLink activeClassName="active" to="/allusers"> All Users</NavLink></li>
         )}

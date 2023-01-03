@@ -6,7 +6,7 @@ import "../styles/form.css";
 
 export default function SignUp({ facade ,getResult,editMode})
 {
-    
+    let history = useHistory();
     const init = { login_name: "", password: "" };
     const [Credentials, setCredentials] = useState(init);
 
@@ -16,7 +16,7 @@ export default function SignUp({ facade ,getResult,editMode})
     {
         evt.preventDefault();
         facade.createUser(Credentials.login_name, Credentials.password)
-       
+       history.push("/")
 
 
     }
