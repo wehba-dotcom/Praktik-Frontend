@@ -17,13 +17,17 @@ import AllUsers from './components/AllUsers';
 import ModifyUsers from './components/ModifyUsers';
 import  Useredit from './components/Useredit';
 import About from "./components/About"
+import SignUp from './components/SignUp';
+
+
+
 
 function App() {
 
     const [isAdmin, setIsAdmin] = useState(false);
     const [userRole, setUserRole]=useState("none");
     const [loggedIn, setLoggedIn] = useState(false);
-    const [errorMessage, setErrorMessage] = useState('  SignIn and you will have all detials');
+    const [errorMessage, setErrorMessage] = useState('  SignUp and you will have all detials');
     const [putResult, setPutResult] = useState({ login_name: "", password: "" });
     const [editMode,seteditMode]= useState(false)
     const [user,setUser]= useState(null)
@@ -51,8 +55,8 @@ function App() {
             <Route  exact path="/">
               <Home/>
             </Route>
-            <Route  path="/signin">
-              <SignIn
+            <Route  path="/signup">
+              <SignUp
               logout={logout}
               loggedIn={loggedIn}
               setLoggedIn={setLoggedIn}
@@ -77,10 +81,18 @@ function App() {
               {facade.hasUserAccess(isAdmin,loggedIn ,"user",userRole)&& (
                 <About facade={facade} setErrorMessage={setErrorMessage}/>)}
             </Route>
+            <Route path="/signin">
+                <SignIn facade={facade} setErrorMessage={setErrorMessage}  logout={logout}
+              loggedIn={loggedIn}
+              setLoggedIn={setLoggedIn}
+              setIsAdmin={setIsAdmin}
+              setUserRole={setUserRole}/>
+            </Route>
             <Route path="/allusers">
               {facade.hasUserAccess(isAdmin,loggedIn ,"admin",userRole)&& (
                 <AllUsers facade={facade} setErrorMessage={setErrorMessage} />)}
             </Route>
+           
             <Route path="/modifyusers">
               {facade.hasUserAccess(isAdmin,loggedIn ,"admin",userRole)&& (
                 <ModifyUsers facade={facade} setErrorMessage={setErrorMessage} onEditUser={onEditUser} user={user} />)}

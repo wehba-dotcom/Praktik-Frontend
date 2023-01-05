@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,Label } from "react";
 import {useHistory} from "react-router-dom"
 import Button from 'react-bootstrap/Button';
 
@@ -11,7 +11,9 @@ export default function logIn({  setLoggedIn, facade, setErrorMessage, setIsAdmi
         const performLogin = (evt) => {
           evt.preventDefault();
           console.log(loginCredentials.login_name, loginCredentials.password)
-          facade.login(loginCredentials.login_name, loginCredentials.password, setLoggedIn, setErrorMessage, setIsAdmin,setUserRole)   
+    
+    
+      facade.login(loginCredentials.login_name, loginCredentials.password, setLoggedIn, setErrorMessage, setIsAdmin,setUserRole)   
           history.push("/About")
         }
 
@@ -26,7 +28,9 @@ export default function logIn({  setLoggedIn, facade, setErrorMessage, setIsAdmi
           <input className="login-input" placeholder="User Name" id="login_name" /> <br /><br />
           <input className="login-input" type="password" placeholder="Password" id="password" /> <br /><br />
           <Button  variant="secondary" className="login-btn" onClick={performLogin}>Login</Button>
+          
         </form>
+       
         </div>
 
-   ) }
+   )}

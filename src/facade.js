@@ -40,6 +40,7 @@ function apiFacade() {
               if (err.status)
               {
                   console.log(err)
+                
                   err.fullError.then(e => console.log(e.code + ": " + e.message))
               }
               else { console.log("Network error"); }
@@ -68,11 +69,11 @@ function apiFacade() {
 
 
     const createUser= (login_name,password) => {
+    
       const options = makeOptions("POST", {login_name: login_name, password: password });
       return fetch(URL , options)
-
-    }
-
+     
+  }
     
     const deleteUser= (id) => {
       const options = makeOptions("DELETE", {ID:id});

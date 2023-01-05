@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,Link} from "react";
 import {Modal} from 'react-bootstrap'
 import SignUp from "./SignUp";
 import LogIn from "./LogIn";
@@ -28,15 +28,8 @@ export default function SignIn({  logout, loggedIn, setLoggedIn, facade, setErro
           </div>
         )}
         <br/>
-        {!loggedIn ? (
-         <div>
-          <Button variant="secondary" className="register-btn" onClick={handleOpen}> register</Button><br/></div> ) : (<br/>) }
-          <Modal show={showModal} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Create User</Modal.Title>
-          </Modal.Header>
-          <Modal.Body><SignUp facade={facade}/></Modal.Body>
-        </Modal>
+       
+          
         </div>
       )
       }

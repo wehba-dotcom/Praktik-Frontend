@@ -27,7 +27,7 @@ export default function Headheader({facade, loggedIn,logout, isAdmin,userRole}) 
           <li><NavLink activeClassName="active" to="/modifyusers"> Modify Users</NavLink></li>
         )}
         
-         <li><NavLink  activeClassName="active" to="/signin">SignIn</NavLink></li>
+         <li><NavLink  activeClassName="active" to="/signup">SignUp</NavLink></li>
        
       </ul>
     </div>
