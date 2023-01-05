@@ -26,9 +26,9 @@ export default function Headheader({facade, loggedIn,logout, isAdmin,userRole}) 
          {facade.hasUserAccess(isAdmin,loggedIn ,"admin",userRole)&& (
           <li><NavLink activeClassName="active" to="/modifyusers"> Modify Users</NavLink></li>
         )}
-        
-         <li><NavLink  activeClassName="active" to="/signup">SignUp</NavLink></li>
-       
+        {!loggedIn ? (
+         <li><NavLink  activeClassName="active" to="/signup">SignUp</NavLink></li>):
+        ( <li><NavLink  activeClassName="active" to="/signin">LogOut</NavLink></li>)}
       </ul>
     </div>
   );

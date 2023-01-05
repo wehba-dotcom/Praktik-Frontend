@@ -14,7 +14,7 @@ export default function logIn({  setLoggedIn, facade, setErrorMessage, setIsAdmi
     
     
       facade.login(loginCredentials.login_name, loginCredentials.password, setLoggedIn, setErrorMessage, setIsAdmin,setUserRole)   
-          history.push("/About")
+          history.push("/")
         }
 
         const onChange = (evt) => {
