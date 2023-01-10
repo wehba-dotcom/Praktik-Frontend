@@ -57,9 +57,7 @@ function SginUp({facade}) {
   const isValid = Object.keys(errors).length === 0;
 
   const handleSubmitSignup =  (event) => {
-    event.preventDefault();
-   
-    
+    event.preventDefault(); 
       facade.createUser(user.login_name, user.password) 
         setIsSubmittedSignup(true)
         

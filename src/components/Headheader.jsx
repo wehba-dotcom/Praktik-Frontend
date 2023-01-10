@@ -28,7 +28,7 @@ export default function Headheader({facade, loggedIn,logout, isAdmin,userRole}) 
         )}
         {!loggedIn ? (
          <li><NavLink  activeClassName="active" to="/signup">SignUp</NavLink></li>):
-        ( <li><NavLink  activeClassName="active" to="/signin">LogOut</NavLink></li>)}
+        ( <li><NavLink  activeClassName="active" to="/signin">Logout</NavLink></li>)}
       </ul>
     </div>
   );

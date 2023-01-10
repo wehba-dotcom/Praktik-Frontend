@@ -1,5 +1,5 @@
 import React ,{useState,useEffect} from "react";
-import {useParams} from "react-router-dom"
+import {useParams,useHistory} from "react-router-dom"
 import  {useNavigate} from "react"
 import {Container} from 'react-bootstrap'
 import Button from 'react-bootstrap/Button';
@@ -17,7 +17,7 @@ function handleHttpErrors(res) {
 export default  function Useredit({facade}){
 
 
-
+  const history = useHistory();
 
 const [ID,setUserID]= useState(0)
 const [is_admin,setIsadmin]=useState()
@@ -69,7 +69,7 @@ const onChange = (evt) => {
                 headers: {"content-type": "application/json"},
                 body: JSON.stringify(item)
                 }).then(()=>{
-                
+                history.push("/modifyusers")
                 }).catch((err)=>{
                       console.log(err.message)
                 })
