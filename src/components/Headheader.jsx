@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{Button} from 'react';
 import { NavLink } from 'react-router-dom';
 import "../styles/form.css";
 
@@ -27,8 +27,8 @@ export default function Headheader({facade, loggedIn,logout, isAdmin,userRole}) 
           <li><NavLink activeClassName="active" to="/modifyusers"> Modify Users</NavLink></li>
         )}
         {!loggedIn ? (
-         <li><NavLink  activeClassName="active" to="/signup">SignUp</NavLink></li>):
-        ( <li><NavLink  activeClassName="active" to="/signin">Logout</NavLink></li>)}
+         <li><NavLink  activeClassName="active" to="/signup">SignUp</NavLink></li>):<div></div>}
+     <div style={{ display: 'flex', justifyContent: 'flex-end' }} >  {(loggedIn)?<button style={{float: 'left'}} className="btn btn-secondary logout-button" size="sm" onClick={logout}>Logout</button>: <div></div>}</div>
       </ul>
     </div>
   );
