@@ -2,8 +2,8 @@ import {Modal} from 'react-bootstrap'
 import React, { useState,useEffect} from "react";
 import { Link} from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
-import SignUp from './SignUp';
-
+import AddUser from './AddUser';
+import { useHistory } from "react-router-dom";
 
 function ModifyUsers({facade,onEditUser,user}){
 
@@ -14,12 +14,13 @@ function ModifyUsers({facade,onEditUser,user}){
   const[is_admin,setIs_Admin] = useState("")
   const[userId,setUserId] = useState(null)
 
-
+const history= useHistory();
 
 
   const handleClose = () => setShowModal(false)
   const handleOpen = () => {
-      setShowModal(true)
+      history.push("/AddUser")
+
   } 
     const baseURL = "https://central.brkint.dk/api/allusers/";
    
@@ -110,7 +111,7 @@ function getAllUsers(){
          <Modal.Header closeButton>
            <Modal.Title>Create User</Modal.Title>
          </Modal.Header>
-         <Modal.Body><SignUp facade={facade}/></Modal.Body>
+         <Modal.Body><AddUser facade={facade}/></Modal.Body>
        </Modal> </th>
         </tr>
     </thead> <tbody>

@@ -18,7 +18,7 @@ import ModifyUsers from './components/ModifyUsers';
 import  Useredit from './components/Useredit';
 import About from "./components/About"
 import SignUp from './components/SignUp';
-
+import AddUser from './components/AddUser';
 
 
 
@@ -100,6 +100,10 @@ function App() {
             <Route path="/useredit/:id">
               {facade.hasUserAccess(isAdmin,loggedIn ,"admin",userRole)&& (
                 <Useredit facade={facade} setErrorMessage={setErrorMessage} />)}
+            </Route>
+            <Route path="/adduser">
+              {facade.hasUserAccess(isAdmin,loggedIn ,"admin",userRole)&& (
+                <AddUser facade={facade} setErrorMessage={setErrorMessage} />)}
             </Route>
             <Route path="*">
               <NoMatch />

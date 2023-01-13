@@ -4,7 +4,7 @@ import "../styles/form.css";
 
 
 
-export default function SignUp({ facade ,getResult,editMode})
+export default function AddUser({ facade ,getResult,editMode})
 {
     let history = useHistory();
     const init = { login_name: "", password: "" };
@@ -17,7 +17,7 @@ export default function SignUp({ facade ,getResult,editMode})
         
         evt.preventDefault();
         facade.createUser(Credentials.login_name, Credentials.password)
-       history.push("/")
+       history.push("/modifyUsers")
 
 
     }
@@ -31,13 +31,11 @@ export default function SignUp({ facade ,getResult,editMode})
     return (
         <div style={{textAlign:"center"}}>
           
-            <h2>Sign up</h2>
-            
-           
+            <h2>Add User</h2>
             <form  onChange={onChange} >
           <input className="login-input"  placeholder="User Name" defaultValue={editMode ? getResult.login_name :""} id="login_name" /> <br /><br />
           <input className="login-input"  type="password" placeholder="Password" id="password" /> <br /><br />
-          <button className="login-btn" onClick={create}>Create</button>
+          <button className="login-btn" onClick={create}>Add</button>
         </form>
             
             
