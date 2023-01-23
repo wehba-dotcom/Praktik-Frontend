@@ -35,10 +35,10 @@ function Find_Scope(){
     async function getDataById(e) {
       const id = ScopeId.current.value;
       e.preventDefault();
-          const res = await fetch(`${baseURL}${id}`);
+          const res = await fetch(`https://central.brkint.dk/api/scopes/`+id);
           const data = await res.json();
           setGetResult(data);
-       
+       console.log(data)
     }
 
   

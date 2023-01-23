@@ -60,19 +60,41 @@ function SginUp({facade}) {
     event.preventDefault(); 
       facade.createUser(user.login_name, user.password) 
         setIsSubmittedSignup(true)
-        
-    
   }
+  const handleSubmitSignups = async (event) => {
+    event.preventDefault();
+    if (!isValid) {
+      alert("Please correct errors first.");
+      return;
+    }
+    setIsSubmittedSignup(false);
+    try {
+      let res =facade.createUser(user.login_name, user.password) 
+      console.log(res)
+      if (res) {
+        setIsSubmittedSignup(true);
+      }
+    } catch (error) {
+      if (error.response.message) {
+        setSignupError(error.response.data.message);
+      }
+    }
+  
+  };
+
+
+
+
   return (
     <Container fluid>
       <Row>
         <Col />
-        <Col className="loginColumn" lg={4} md={6} sm={6}>
+        <Col className="loginColumn" lg={6} md={6} sm={6}>
           <Card className="text-center">
             <Card.Body>
               <Card.Title className="p-2">User Registration</Card.Title>
               <Card.Text>
-                <Form onSubmit={handleSubmitSignup}>
+                <Form onSubmit={handleSubmitSignups}>
                   {isSubmittedSignup ? <Alert variant="success">Successfully Registered.</Alert> : null}
                   {signupError ? <Alert variant="danger">{signupError}</Alert> : null}
                   <Form.Group className="mb-3" controlId="formBasicName">
